@@ -1,0 +1,892 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MGRModelStoreContainer" CdmEntityContainer="MGREntities">
+    <EntitySetMapping Name="Alert">
+      <EntityTypeMapping TypeName="MGRModel.Alert">
+        <MappingFragment StoreEntitySet="Alert">
+          <ScalarProperty Name="ID_alert" ColumnName="ID_alert" />
+          <ScalarProperty Name="ID_dzial" ColumnName="ID_dzial" />
+          <ScalarProperty Name="Tresc" ColumnName="Tresc" />
+          <ScalarProperty Name="Czy_odczytano" ColumnName="Czy_odczytano" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Atrybut">
+      <EntityTypeMapping TypeName="MGRModel.Atrybut">
+        <MappingFragment StoreEntitySet="Atrybut">
+          <ScalarProperty Name="ID_atrybut" ColumnName="ID_atrybut" />
+          <ScalarProperty Name="ID_produkt" ColumnName="ID_produkt" />
+          <ScalarProperty Name="ID_slownik_atrybut" ColumnName="ID_slownik_atrybut" />
+          <ScalarProperty Name="Wartosc" ColumnName="Wartosc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Czas_pracy">
+      <EntityTypeMapping TypeName="MGRModel.Czas_pracy">
+        <MappingFragment StoreEntitySet="Czas_pracy">
+          <ScalarProperty Name="ID_czas_pracy" ColumnName="ID_czas_pracy" />
+          <ScalarProperty Name="ID_pracownik" ColumnName="ID_pracownik" />
+          <ScalarProperty Name="Data_pracy" ColumnName="Data_pracy" />
+          <ScalarProperty Name="Liczba_godzin" ColumnName="Liczba_godzin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Dane_adresowe_pracownik">
+      <EntityTypeMapping TypeName="MGRModel.Dane_adresowe_pracownik">
+        <MappingFragment StoreEntitySet="Dane_adresowe_pracownik">
+          <ScalarProperty Name="ID_dane_adresowe_pracownik" ColumnName="ID_dane_adresowe_pracownik" />
+          <ScalarProperty Name="ID_pracownik" ColumnName="ID_pracownik" />
+          <ScalarProperty Name="Miejscowosc" ColumnName="Miejscowosc" />
+          <ScalarProperty Name="Ulica" ColumnName="Ulica" />
+          <ScalarProperty Name="Nr_budynku" ColumnName="Nr_budynku" />
+          <ScalarProperty Name="Nr_lokalu" ColumnName="Nr_lokalu" />
+          <ScalarProperty Name="Kod_pocztowy" ColumnName="Kod_pocztowy" />
+          <ScalarProperty Name="Data_od" ColumnName="Data_od" />
+          <ScalarProperty Name="Data_do" ColumnName="Data_do" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Dostawa">
+      <EntityTypeMapping TypeName="MGRModel.Dostawa">
+        <MappingFragment StoreEntitySet="Dostawa">
+          <ScalarProperty Name="ID_dostawa" ColumnName="ID_dostawa" />
+          <ScalarProperty Name="ID_dostawca" ColumnName="ID_dostawca" />
+          <ScalarProperty Name="ID_pracownik" ColumnName="ID_pracownik" />
+          <ScalarProperty Name="Data_dostawa" ColumnName="Data_dostawa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Dostawa_szczegol">
+      <EntityTypeMapping TypeName="MGRModel.Dostawa_szczegol">
+        <MappingFragment StoreEntitySet="Dostawa_szczegol">
+          <ScalarProperty Name="ID_dostawa_szczegol" ColumnName="ID_dostawa_szczegol" />
+          <ScalarProperty Name="ID_dostawa" ColumnName="ID_dostawa" />
+          <ScalarProperty Name="ID_produkt" ColumnName="ID_produkt" />
+          <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
+          <ScalarProperty Name="Cena_szt" ColumnName="Cena_szt" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Dostawca">
+      <EntityTypeMapping TypeName="MGRModel.Dostawca">
+        <MappingFragment StoreEntitySet="Dostawca">
+          <ScalarProperty Name="ID_dostawca" ColumnName="ID_dostawca" />
+          <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+          <ScalarProperty Name="Nr_telefon" ColumnName="Nr_telefon" />
+          <ScalarProperty Name="Adres_email" ColumnName="Adres_email" />
+          <ScalarProperty Name="Kod_pocztowy" ColumnName="Kod_pocztowy" />
+          <ScalarProperty Name="Miasto" ColumnName="Miasto" />
+          <ScalarProperty Name="Ulica" ColumnName="Ulica" />
+          <ScalarProperty Name="Nr_budynku" ColumnName="Nr_budynku" />
+          <ScalarProperty Name="Nr_lokalu" ColumnName="Nr_lokalu" />
+          <ScalarProperty Name="NIP" ColumnName="NIP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Dzial">
+      <EntityTypeMapping TypeName="MGRModel.Dzial">
+        <MappingFragment StoreEntitySet="Dzial">
+          <ScalarProperty Name="ID_dzial" ColumnName="ID_dzial" />
+          <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Dzial_pracownik">
+      <EntityTypeMapping TypeName="MGRModel.Dzial_pracownik">
+        <MappingFragment StoreEntitySet="Dzial_pracownik">
+          <ScalarProperty Name="ID_dzial_pracownik" ColumnName="ID_dzial_pracownik" />
+          <ScalarProperty Name="Nazwa_dzial_pracownik" ColumnName="Nazwa_dzial_pracownik" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Email_pracownik">
+      <EntityTypeMapping TypeName="MGRModel.Email_pracownik">
+        <MappingFragment StoreEntitySet="Email_pracownik">
+          <ScalarProperty Name="ID_email_pracownik" ColumnName="ID_email_pracownik" />
+          <ScalarProperty Name="ID_pracownik" ColumnName="ID_pracownik" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Data_od" ColumnName="Data_od" />
+          <ScalarProperty Name="Data_do" ColumnName="Data_do" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Etat">
+      <EntityTypeMapping TypeName="MGRModel.Etat">
+        <MappingFragment StoreEntitySet="Etat">
+          <ScalarProperty Name="ID_etat" ColumnName="ID_etat" />
+          <ScalarProperty Name="ID_stanowisko" ColumnName="ID_stanowisko" />
+          <ScalarProperty Name="Liczba_miejsc" ColumnName="Liczba_miejsc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Forma_platnosc">
+      <EntityTypeMapping TypeName="MGRModel.Forma_platnosc">
+        <MappingFragment StoreEntitySet="Forma_platnosc">
+          <ScalarProperty Name="ID_forma_platnosc" ColumnName="ID_forma_platnosc" />
+          <ScalarProperty Name="Forma_platnosc1" ColumnName="Forma_platnosc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Gwarancja">
+      <EntityTypeMapping TypeName="MGRModel.Gwarancja">
+        <MappingFragment StoreEntitySet="Gwarancja">
+          <ScalarProperty Name="ID_gwarancja" ColumnName="ID_gwarancja" />
+          <ScalarProperty Name="Opis_gwarancja" ColumnName="Opis_gwarancja" />
+          <ScalarProperty Name="Okres_gwarancja" ColumnName="Okres_gwarancja" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Jednostka">
+      <EntityTypeMapping TypeName="MGRModel.Jednostka">
+        <MappingFragment StoreEntitySet="Jednostka">
+          <ScalarProperty Name="ID_jednostka" ColumnName="ID_jednostka" />
+          <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kategoria">
+      <EntityTypeMapping TypeName="MGRModel.Kategoria">
+        <MappingFragment StoreEntitySet="Kategoria">
+          <ScalarProperty Name="ID_kategoria" ColumnName="ID_kategoria" />
+          <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+          <ScalarProperty Name="ID_dzial" ColumnName="ID_dzial" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Klient">
+      <EntityTypeMapping TypeName="MGRModel.Klient">
+        <MappingFragment StoreEntitySet="Klient">
+          <ScalarProperty Name="ID_klient" ColumnName="ID_klient" />
+          <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+          <ScalarProperty Name="Imie" ColumnName="Imie" />
+          <ScalarProperty Name="Nazwa_firmy" ColumnName="Nazwa_firmy" />
+          <ScalarProperty Name="NIP" ColumnName="NIP" />
+          <ScalarProperty Name="Nr_telefonu_1" ColumnName="Nr_telefonu_1" />
+          <ScalarProperty Name="Nr_telefonu_2" ColumnName="Nr_telefonu_2" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Miasto" ColumnName="Miasto" />
+          <ScalarProperty Name="Kod_pocztowy" ColumnName="Kod_pocztowy" />
+          <ScalarProperty Name="Ulica" ColumnName="Ulica" />
+          <ScalarProperty Name="Nr_domu" ColumnName="Nr_domu" />
+          <ScalarProperty Name="Nr_lokalu" ColumnName="Nr_lokalu" />
+          <ScalarProperty Name="ID_status_klient" ColumnName="ID_status_klient" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Miejsce_magazynowania">
+      <EntityTypeMapping TypeName="MGRModel.Miejsce_magazynowania">
+        <MappingFragment StoreEntitySet="Miejsce_magazynowania">
+          <ScalarProperty Name="ID_miejsce_magazynowania" ColumnName="ID_miejsce_magazynowania" />
+          <ScalarProperty Name="ID_produkt" ColumnName="ID_produkt" />
+          <ScalarProperty Name="ID_typ_magazynowania" ColumnName="ID_typ_magazynowania" />
+          <ScalarProperty Name="ID_poziom_magazynowanie" ColumnName="ID_poziom_magazynowanie" />
+          <ScalarProperty Name="Nr_miejsca" ColumnName="Nr_miejsca" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Nadgodziny">
+      <EntityTypeMapping TypeName="MGRModel.Nadgodziny">
+        <MappingFragment StoreEntitySet="Nadgodziny">
+          <ScalarProperty Name="ID_nadgodziny" ColumnName="ID_nadgodziny" />
+          <ScalarProperty Name="ID_pracownik" ColumnName="ID_pracownik" />
+          <ScalarProperty Name="Data_nadgodziny" ColumnName="Data_nadgodziny" />
+          <ScalarProperty Name="ID_rodzaj_nadgodziny" ColumnName="ID_rodzaj_nadgodziny" />
+          <ScalarProperty Name="Czas" ColumnName="Czas" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Nieobecnosc">
+      <EntityTypeMapping TypeName="MGRModel.Nieobecnosc">
+        <MappingFragment StoreEntitySet="Nieobecnosc">
+          <ScalarProperty Name="ID_nieobecnosc" ColumnName="ID_nieobecnosc" />
+          <ScalarProperty Name="ID_pracownik" ColumnName="ID_pracownik" />
+          <ScalarProperty Name="ID_rodzaj_nieobecnosci" ColumnName="ID_rodzaj_nieobecnosci" />
+          <ScalarProperty Name="Data_od" ColumnName="Data_od" />
+          <ScalarProperty Name="Data_do" ColumnName="Data_do" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Nr_telefon_pracownik">
+      <EntityTypeMapping TypeName="MGRModel.Nr_telefon_pracownik">
+        <MappingFragment StoreEntitySet="Nr_telefon_pracownik">
+          <ScalarProperty Name="ID_Nr_telefon_pracownik" ColumnName="ID_Nr_telefon_pracownik" />
+          <ScalarProperty Name="ID_pracownik" ColumnName="ID_pracownik" />
+          <ScalarProperty Name="Numer" ColumnName="Numer" />
+          <ScalarProperty Name="Data_od" ColumnName="Data_od" />
+          <ScalarProperty Name="Data_do" ColumnName="Data_do" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Oferta_handlowa">
+      <EntityTypeMapping TypeName="MGRModel.Oferta_handlowa">
+        <MappingFragment StoreEntitySet="Oferta_handlowa">
+          <ScalarProperty Name="ID_oferta_handlowa" ColumnName="ID_oferta_handlowa" />
+          <ScalarProperty Name="ID_pracownik" ColumnName="ID_pracownik" />
+          <ScalarProperty Name="Termin_realizacja" ColumnName="Termin_realizacja" />
+          <ScalarProperty Name="ID_status_oferta" ColumnName="ID_status_oferta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Oferta_handlowa_szczegol">
+      <EntityTypeMapping TypeName="MGRModel.Oferta_handlowa_szczegol">
+        <MappingFragment StoreEntitySet="Oferta_handlowa_szczegol">
+          <ScalarProperty Name="ID_oferta_handlowa_szczegol" ColumnName="ID_oferta_handlowa_szczegol" />
+          <ScalarProperty Name="ID_oferta_handlowa" ColumnName="ID_oferta_handlowa" />
+          <ScalarProperty Name="ID_produkt" ColumnName="ID_produkt" />
+          <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
+          <ScalarProperty Name="Cena_netto_za_jednostke" ColumnName="Cena_netto_za_jednostke" />
+          <ScalarProperty Name="ID_podatek" ColumnName="ID_podatek" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Parametr_poziom_magazynowanie">
+      <EntityTypeMapping TypeName="MGRModel.Parametr_poziom_magazynowanie">
+        <MappingFragment StoreEntitySet="Parametr_poziom_magazynowanie">
+          <ScalarProperty Name="ID_parametr_poziom_magazynowanie" ColumnName="ID_parametr_poziom_magazynowanie" />
+          <ScalarProperty Name="ID_poziom_magazynowanie" ColumnName="ID_poziom_magazynowanie" />
+          <ScalarProperty Name="Parametr" ColumnName="Parametr" />
+          <ScalarProperty Name="Wartosc_dolna" ColumnName="Wartosc_dolna" />
+          <ScalarProperty Name="Wartosc_gorna" ColumnName="Wartosc_gorna" />
+          <ScalarProperty Name="ID_jednostka" ColumnName="ID_jednostka" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Parametr_rodzaj_transport">
+      <EntityTypeMapping TypeName="MGRModel.Parametr_rodzaj_transport">
+        <MappingFragment StoreEntitySet="Parametr_rodzaj_transport">
+          <ScalarProperty Name="ID_parametr_pojazd_transport" ColumnName="ID_parametr_pojazd_transport" />
+          <ScalarProperty Name="ID_pojazd_transport" ColumnName="ID_pojazd_transport" />
+          <ScalarProperty Name="ID_typ_parametr_pojazd_transport" ColumnName="ID_typ_parametr_pojazd_transport" />
+          <ScalarProperty Name="Wartosc" ColumnName="Wartosc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Parametr_typ_magazynowania">
+      <EntityTypeMapping TypeName="MGRModel.Parametr_typ_magazynowania">
+        <MappingFragment StoreEntitySet="Parametr_typ_magazynowania">
+          <ScalarProperty Name="ID_parametr_typ_magazynowania" ColumnName="ID_parametr_typ_magazynowania" />
+          <ScalarProperty Name="ID_typ_magazynowania" ColumnName="ID_typ_magazynowania" />
+          <ScalarProperty Name="Parametr" ColumnName="Parametr" />
+          <ScalarProperty Name="Wartosc_dolna" ColumnName="Wartosc_dolna" />
+          <ScalarProperty Name="Wartosc_gorna" ColumnName="Wartosc_gorna" />
+          <ScalarProperty Name="ID_jednostka" ColumnName="ID_jednostka" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Podatek">
+      <EntityTypeMapping TypeName="MGRModel.Podatek">
+        <MappingFragment StoreEntitySet="Podatek">
+          <ScalarProperty Name="ID_podatek" ColumnName="ID_podatek" />
+          <ScalarProperty Name="Procent" ColumnName="Procent" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Podkategoria">
+      <EntityTypeMapping TypeName="MGRModel.Podkategoria">
+        <MappingFragment StoreEntitySet="Podkategoria">
+          <ScalarProperty Name="ID_podkategoria" ColumnName="ID_podkategoria" />
+          <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+          <ScalarProperty Name="ID_Kategoria" ColumnName="ID_Kategoria" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pojazd_transport">
+      <EntityTypeMapping TypeName="MGRModel.Pojazd_transport">
+        <MappingFragment StoreEntitySet="Pojazd_transport">
+          <ScalarProperty Name="ID_pojazd_transport" ColumnName="ID_pojazd_transport" />
+          <ScalarProperty Name="Marka" ColumnName="Marka" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="Nr_rejestracyjny" ColumnName="Nr_rejestracyjny" />
+          <ScalarProperty Name="ID_typ_pojad_transport" ColumnName="ID_typ_pojad_transport" />
+          <ScalarProperty Name="ID_rodzaj_pojazd_transport" ColumnName="ID_rodzaj_pojazd_transport" />
+          <ScalarProperty Name="ID_stan_techniczny_pojazd_transport" ColumnName="ID_stan_techniczny_pojazd_transport" />
+          <ScalarProperty Name="Sr_spalanie_wg_producenta" ColumnName="Sr_spalanie_wg_producenta" />
+          <ScalarProperty Name="ID_typ_paliwa" ColumnName="ID_typ_paliwa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Posada_pracownika">
+      <EntityTypeMapping TypeName="MGRModel.Posada_pracownika">
+        <MappingFragment StoreEntitySet="Posada_pracownika">
+          <ScalarProperty Name="ID_posada_pracownika" ColumnName="ID_posada_pracownika" />
+          <ScalarProperty Name="ID_etat" ColumnName="ID_etat" />
+          <ScalarProperty Name="Data_od" ColumnName="Data_od" />
+          <ScalarProperty Name="Data_do" ColumnName="Data_do" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Poziom_magazynowanie">
+      <EntityTypeMapping TypeName="MGRModel.Poziom_magazynowanie">
+        <MappingFragment StoreEntitySet="Poziom_magazynowanie">
+          <ScalarProperty Name="ID_poziom_magazynowanie" ColumnName="ID_poziom_magazynowanie" />
+          <ScalarProperty Name="Poziom" ColumnName="Poziom" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pracownik">
+      <EntityTypeMapping TypeName="MGRModel.Pracownik">
+        <MappingFragment StoreEntitySet="Pracownik">
+          <ScalarProperty Name="ID_pracownik" ColumnName="ID_pracownik" />
+          <ScalarProperty Name="Nazwisko" ColumnName="Nazwisko" />
+          <ScalarProperty Name="Imie" ColumnName="Imie" />
+          <ScalarProperty Name="Nr_dowodu" ColumnName="Nr_dowodu" />
+          <ScalarProperty Name="PESEL" ColumnName="PESEL" />
+          <ScalarProperty Name="ID_wyksztalcenie" ColumnName="ID_wyksztalcenie" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Producent">
+      <EntityTypeMapping TypeName="MGRModel.Producent">
+        <MappingFragment StoreEntitySet="Producent">
+          <ScalarProperty Name="ID_producent" ColumnName="ID_producent" />
+          <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+          <ScalarProperty Name="Adres_URL" ColumnName="Adres_URL" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Produkt">
+      <EntityTypeMapping TypeName="MGRModel.Produkt">
+        <MappingFragment StoreEntitySet="Produkt">
+          <ScalarProperty Name="ID_produkt" ColumnName="ID_produkt" />
+          <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+          <ScalarProperty Name="ID_producent" ColumnName="ID_producent" />
+          <ScalarProperty Name="ID_typ_produkt" ColumnName="ID_typ_produkt" />
+          <ScalarProperty Name="Nr_produkt" ColumnName="Nr_produkt" />
+          <ScalarProperty Name="Cena_sugerowana_netto" ColumnName="Cena_sugerowana_netto" />
+          <ScalarProperty Name="Termin_magazynowania_miesiace" ColumnName="Termin_magazynowania_miesiace" />
+          <ScalarProperty Name="Termin_przydatnosci_miesiace" ColumnName="Termin_przydatnosci_miesiace" />
+          <ScalarProperty Name="Objetosc_magazynowa_m3" ColumnName="Objetosc_magazynowa_m3" />
+          <ScalarProperty Name="ID_gwarancja" ColumnName="ID_gwarancja" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rabat">
+      <EntityTypeMapping TypeName="MGRModel.Rabat">
+        <MappingFragment StoreEntitySet="Rabat">
+          <ScalarProperty Name="ID_rabat" ColumnName="ID_rabat" />
+          <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+          <ScalarProperty Name="Rabat1" ColumnName="Rabat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reklamacja_detal">
+      <EntityTypeMapping TypeName="MGRModel.Reklamacja_detal">
+        <MappingFragment StoreEntitySet="Reklamacja_detal">
+          <ScalarProperty Name="ID_reklamacja_detal" ColumnName="ID_reklamacja_detal" />
+          <ScalarProperty Name="ID_pracownik" ColumnName="ID_pracownik" />
+          <ScalarProperty Name="ID_sprzedaz_detal" ColumnName="ID_sprzedaz_detal" />
+          <ScalarProperty Name="Data_reklamacja" ColumnName="Data_reklamacja" />
+          <ScalarProperty Name="Opis_reklamacja" ColumnName="Opis_reklamacja" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reklamacja_hurt">
+      <EntityTypeMapping TypeName="MGRModel.Reklamacja_hurt">
+        <MappingFragment StoreEntitySet="Reklamacja_hurt">
+          <ScalarProperty Name="ID_reklamacja_hurt" ColumnName="ID_reklamacja_hurt" />
+          <ScalarProperty Name="ID_pracownik" ColumnName="ID_pracownik" />
+          <ScalarProperty Name="ID_sprzedaz_hurt" ColumnName="ID_sprzedaz_hurt" />
+          <ScalarProperty Name="Data_reklamacja" ColumnName="Data_reklamacja" />
+          <ScalarProperty Name="Opis_reklamacja" ColumnName="Opis_reklamacja" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rodzaj_nadgodziny">
+      <EntityTypeMapping TypeName="MGRModel.Rodzaj_nadgodziny">
+        <MappingFragment StoreEntitySet="Rodzaj_nadgodziny">
+          <ScalarProperty Name="ID_rodzaj_nadgodziny" ColumnName="ID_rodzaj_nadgodziny" />
+          <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rodzaj_nieobecnosci">
+      <EntityTypeMapping TypeName="MGRModel.Rodzaj_nieobecnosci">
+        <MappingFragment StoreEntitySet="Rodzaj_nieobecnosci">
+          <ScalarProperty Name="ID_rodzaj_nieobecnosci" ColumnName="ID_rodzaj_nieobecnosci" />
+          <ScalarProperty Name="Symbol" ColumnName="Symbol" />
+          <ScalarProperty Name="Wspolczynnik_wynagrodzenia" ColumnName="Wspolczynnik_wynagrodzenia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rodzaj_pojazd_transport">
+      <EntityTypeMapping TypeName="MGRModel.Rodzaj_pojazd_transport">
+        <MappingFragment StoreEntitySet="Rodzaj_pojazd_transport">
+          <ScalarProperty Name="ID_rodzaj_pojazd_transport" ColumnName="ID_rodzaj_pojazd_transport" />
+          <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rodzaj_umowy">
+      <EntityTypeMapping TypeName="MGRModel.Rodzaj_umowy">
+        <MappingFragment StoreEntitySet="Rodzaj_umowy">
+          <ScalarProperty Name="ID_rodzaj_umowy" ColumnName="ID_rodzaj_umowy" />
+          <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+          <ScalarProperty Name="Urlop" ColumnName="Urlop" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rozladunek">
+      <EntityTypeMapping TypeName="MGRModel.Rozladunek">
+        <MappingFragment StoreEntitySet="Rozladunek">
+          <ScalarProperty Name="ID_rozladunek" ColumnName="ID_rozladunek" />
+          <ScalarProperty Name="ID_dostawa" ColumnName="ID_dostawa" />
+          <ScalarProperty Name="ID_pojazd_transport" ColumnName="ID_pojazd_transport" />
+          <ScalarProperty Name="ID_pracownik" ColumnName="ID_pracownik" />
+          <ScalarProperty Name="Data_rozladunek" ColumnName="Data_rozladunek" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Slownik_atrybut">
+      <EntityTypeMapping TypeName="MGRModel.Slownik_atrybut">
+        <MappingFragment StoreEntitySet="Slownik_atrybut">
+          <ScalarProperty Name="ID_slownik_atrybut" ColumnName="ID_slownik_atrybut" />
+          <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+          <ScalarProperty Name="ID_jednostka" ColumnName="ID_jednostka" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sprzedaz_detal">
+      <EntityTypeMapping TypeName="MGRModel.Sprzedaz_detal">
+        <MappingFragment StoreEntitySet="Sprzedaz_detal">
+          <ScalarProperty Name="ID_sprzedaz_detal" ColumnName="ID_sprzedaz_detal" />
+          <ScalarProperty Name="Data_sprzedazy" ColumnName="Data_sprzedazy" />
+          <ScalarProperty Name="Termin_zaplata" ColumnName="Termin_zaplata" />
+          <ScalarProperty Name="ID_forma_platnosc" ColumnName="ID_forma_platnosc" />
+          <ScalarProperty Name="ID_Typ_odbioru" ColumnName="ID_Typ_odbioru" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sprzedaz_hurt">
+      <EntityTypeMapping TypeName="MGRModel.Sprzedaz_hurt">
+        <MappingFragment StoreEntitySet="Sprzedaz_hurt">
+          <ScalarProperty Name="ID_sprzedaz_hurt" ColumnName="ID_sprzedaz_hurt" />
+          <ScalarProperty Name="ID_zamowienie" ColumnName="ID_zamowienie" />
+          <ScalarProperty Name="Data_sprzedazy" ColumnName="Data_sprzedazy" />
+          <ScalarProperty Name="Termin_zaplata" ColumnName="Termin_zaplata" />
+          <ScalarProperty Name="ID_forma_platnosc" ColumnName="ID_forma_platnosc" />
+          <ScalarProperty Name="ID_Typ_odbioru" ColumnName="ID_Typ_odbioru" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sprzedaz_szczegol_detal">
+      <EntityTypeMapping TypeName="MGRModel.Sprzedaz_szczegol_detal">
+        <MappingFragment StoreEntitySet="Sprzedaz_szczegol_detal">
+          <ScalarProperty Name="ID_sprzedaz_szczegol_detal" ColumnName="ID_sprzedaz_szczegol_detal" />
+          <ScalarProperty Name="ID_sprzedaz_detal" ColumnName="ID_sprzedaz_detal" />
+          <ScalarProperty Name="ID_produkt" ColumnName="ID_produkt" />
+          <ScalarProperty Name="ID_jednostka" ColumnName="ID_jednostka" />
+          <ScalarProperty Name="Cena_netto_za_jednostke" ColumnName="Cena_netto_za_jednostke" />
+          <ScalarProperty Name="ID_podatek" ColumnName="ID_podatek" />
+          <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sprzedaz_szczegol_hurt">
+      <EntityTypeMapping TypeName="MGRModel.Sprzedaz_szczegol_hurt">
+        <MappingFragment StoreEntitySet="Sprzedaz_szczegol_hurt">
+          <ScalarProperty Name="ID_sprzedaz_szczegol_hurt" ColumnName="ID_sprzedaz_szczegol_hurt" />
+          <ScalarProperty Name="ID_sprzedaz_hurt" ColumnName="ID_sprzedaz_hurt" />
+          <ScalarProperty Name="ID_produkt" ColumnName="ID_produkt" />
+          <ScalarProperty Name="ID_jednostka" ColumnName="ID_jednostka" />
+          <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sprzedaz_usluga_detal">
+      <EntityTypeMapping TypeName="MGRModel.Sprzedaz_usluga_detal">
+        <MappingFragment StoreEntitySet="Sprzedaz_usluga_detal">
+          <ScalarProperty Name="ID_sprzedaz_usluga_detal" ColumnName="ID_sprzedaz_usluga_detal" />
+          <ScalarProperty Name="ID_sprzedaz_detal" ColumnName="ID_sprzedaz_detal" />
+          <ScalarProperty Name="ID_pracownik" ColumnName="ID_pracownik" />
+          <ScalarProperty Name="Termin_zaplata" ColumnName="Termin_zaplata" />
+          <ScalarProperty Name="ID_forma_platnosc" ColumnName="ID_forma_platnosc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sprzedaz_usluga_hurt">
+      <EntityTypeMapping TypeName="MGRModel.Sprzedaz_usluga_hurt">
+        <MappingFragment StoreEntitySet="Sprzedaz_usluga_hurt">
+          <ScalarProperty Name="ID_sprzedaz_usluga_hurt" ColumnName="ID_sprzedaz_usluga_hurt" />
+          <ScalarProperty Name="ID_sprzedaz_hurt" ColumnName="ID_sprzedaz_hurt" />
+          <ScalarProperty Name="ID_pracownik" ColumnName="ID_pracownik" />
+          <ScalarProperty Name="Termin_zaplata" ColumnName="Termin_zaplata" />
+          <ScalarProperty Name="ID_forma_platnosc" ColumnName="ID_forma_platnosc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stan_realizacji">
+      <EntityTypeMapping TypeName="MGRModel.Stan_realizacji">
+        <MappingFragment StoreEntitySet="Stan_realizacji">
+          <ScalarProperty Name="ID_stan_realizacji" ColumnName="ID_stan_realizacji" />
+          <ScalarProperty Name="Nazwa_stan_realizaji" ColumnName="Nazwa_stan_realizaji" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stan_realizacji_dostawa">
+      <EntityTypeMapping TypeName="MGRModel.Stan_realizacji_dostawa">
+        <MappingFragment StoreEntitySet="Stan_realizacji_dostawa">
+          <ScalarProperty Name="ID_stan_realizacji_dostawa" ColumnName="ID_stan_realizacji_dostawa" />
+          <ScalarProperty Name="ID_dostawa" ColumnName="ID_dostawa" />
+          <ScalarProperty Name="ID_status_dostawa" ColumnName="ID_status_dostawa" />
+          <ScalarProperty Name="Data_st" ColumnName="Data_st" />
+          <ScalarProperty Name="ID_pracownik" ColumnName="ID_pracownik" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stan_techniczny_pojazd_transport">
+      <EntityTypeMapping TypeName="MGRModel.Stan_techniczny_pojazd_transport">
+        <MappingFragment StoreEntitySet="Stan_techniczny_pojazd_transport">
+          <ScalarProperty Name="ID_stan_techniczny_pojazd_transport" ColumnName="ID_stan_techniczny_pojazd_transport" />
+          <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stanowisko">
+      <EntityTypeMapping TypeName="MGRModel.Stanowisko">
+        <MappingFragment StoreEntitySet="Stanowisko">
+          <ScalarProperty Name="ID_stanowisko" ColumnName="ID_stanowisko" />
+          <ScalarProperty Name="Nazwa_stanowiska" ColumnName="Nazwa_stanowiska" />
+          <ScalarProperty Name="ID_dzial_pracownik" ColumnName="ID_dzial_pracownik" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Status_dostawa">
+      <EntityTypeMapping TypeName="MGRModel.Status_dostawa">
+        <MappingFragment StoreEntitySet="Status_dostawa">
+          <ScalarProperty Name="ID_status_dostawa" ColumnName="ID_status_dostawa" />
+          <ScalarProperty Name="Nazwa_status" ColumnName="Nazwa_status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Status_klient">
+      <EntityTypeMapping TypeName="MGRModel.Status_klient">
+        <MappingFragment StoreEntitySet="Status_klient">
+          <ScalarProperty Name="ID_status_klient" ColumnName="ID_status_klient" />
+          <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+          <ScalarProperty Name="ID_rabat" ColumnName="ID_rabat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Status_oferta">
+      <EntityTypeMapping TypeName="MGRModel.Status_oferta">
+        <MappingFragment StoreEntitySet="Status_oferta">
+          <ScalarProperty Name="ID_status_oferta" ColumnName="ID_status_oferta" />
+          <ScalarProperty Name="Nazwa_status_oferta" ColumnName="Nazwa_status_oferta" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Szczegol_reklamacja_detal">
+      <EntityTypeMapping TypeName="MGRModel.Szczegol_reklamacja_detal">
+        <MappingFragment StoreEntitySet="Szczegol_reklamacja_detal">
+          <ScalarProperty Name="ID_szczegol_reklamacja_detal" ColumnName="ID_szczegol_reklamacja_detal" />
+          <ScalarProperty Name="ID_reklamacja_detal" ColumnName="ID_reklamacja_detal" />
+          <ScalarProperty Name="ID_typ_reklamacja" ColumnName="ID_typ_reklamacja" />
+          <ScalarProperty Name="ID_produkt" ColumnName="ID_produkt" />
+          <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
+          <ScalarProperty Name="Utylizacja" ColumnName="Utylizacja" />
+          <ScalarProperty Name="Uwagi" ColumnName="Uwagi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Szczegol_reklamacja_hurt">
+      <EntityTypeMapping TypeName="MGRModel.Szczegol_reklamacja_hurt">
+        <MappingFragment StoreEntitySet="Szczegol_reklamacja_hurt">
+          <ScalarProperty Name="ID_szczegol_reklamacja_hurt" ColumnName="ID_szczegol_reklamacja_hurt" />
+          <ScalarProperty Name="ID_reklamacja_hurt" ColumnName="ID_reklamacja_hurt" />
+          <ScalarProperty Name="ID_typ_reklamacja" ColumnName="ID_typ_reklamacja" />
+          <ScalarProperty Name="ID_produkt" ColumnName="ID_produkt" />
+          <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
+          <ScalarProperty Name="Utylizacja" ColumnName="Utylizacja" />
+          <ScalarProperty Name="Uwagi" ColumnName="Uwagi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Szczegol_sprzedaz_usluga_detal">
+      <EntityTypeMapping TypeName="MGRModel.Szczegol_sprzedaz_usluga_detal">
+        <MappingFragment StoreEntitySet="Szczegol_sprzedaz_usluga_detal">
+          <ScalarProperty Name="ID_szczegol_sprzedaz_usluga_detal" ColumnName="ID_szczegol_sprzedaz_usluga_detal" />
+          <ScalarProperty Name="ID_sprzedaz_usuluga_detal" ColumnName="ID_sprzedaz_usuluga_detal" />
+          <ScalarProperty Name="ID_usluga" ColumnName="ID_usluga" />
+          <ScalarProperty Name="Data_sprzedaz_usluga" ColumnName="Data_sprzedaz_usluga" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Szczegol_sprzedaz_usluga_hurt">
+      <EntityTypeMapping TypeName="MGRModel.Szczegol_sprzedaz_usluga_hurt">
+        <MappingFragment StoreEntitySet="Szczegol_sprzedaz_usluga_hurt">
+          <ScalarProperty Name="ID_szczegol_sprzedaz_usluga_hurt" ColumnName="ID_szczegol_sprzedaz_usluga_hurt" />
+          <ScalarProperty Name="ID_sprzedaz_usuluga_hurt" ColumnName="ID_sprzedaz_usuluga_hurt" />
+          <ScalarProperty Name="ID_usluga" ColumnName="ID_usluga" />
+          <ScalarProperty Name="Data_sprzedaz_usluga" ColumnName="Data_sprzedaz_usluga" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Szkolenie_pracownik">
+      <EntityTypeMapping TypeName="MGRModel.Szkolenie_pracownik">
+        <MappingFragment StoreEntitySet="Szkolenie_pracownik">
+          <ScalarProperty Name="ID_szkolenie_pracownik" ColumnName="ID_szkolenie_pracownik" />
+          <ScalarProperty Name="ID_typ_szkolenie" ColumnName="ID_typ_szkolenie" />
+          <ScalarProperty Name="ID_pracownik" ColumnName="ID_pracownik" />
+          <ScalarProperty Name="Data_od" ColumnName="Data_od" />
+          <ScalarProperty Name="Data_do" ColumnName="Data_do" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Typ_magazynowania">
+      <EntityTypeMapping TypeName="MGRModel.Typ_magazynowania">
+        <MappingFragment StoreEntitySet="Typ_magazynowania">
+          <ScalarProperty Name="ID_typ_magazynowania" ColumnName="ID_typ_magazynowania" />
+          <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Typ_odbioru">
+      <EntityTypeMapping TypeName="MGRModel.Typ_odbioru">
+        <MappingFragment StoreEntitySet="Typ_odbioru">
+          <ScalarProperty Name="ID_typ_odbioru" ColumnName="ID_typ_odbioru" />
+          <ScalarProperty Name="Typ_odbioru1" ColumnName="Typ_odbioru" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Typ_paliwa">
+      <EntityTypeMapping TypeName="MGRModel.Typ_paliwa">
+        <MappingFragment StoreEntitySet="Typ_paliwa">
+          <ScalarProperty Name="ID_typ_paliwa" ColumnName="ID_typ_paliwa" />
+          <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Typ_parametr_pojazd_transport">
+      <EntityTypeMapping TypeName="MGRModel.Typ_parametr_pojazd_transport">
+        <MappingFragment StoreEntitySet="Typ_parametr_pojazd_transport">
+          <ScalarProperty Name="ID_typ_parametr_pojazd_transport" ColumnName="ID_typ_parametr_pojazd_transport" />
+          <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+          <ScalarProperty Name="ID_jednostka" ColumnName="ID_jednostka" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Typ_pojazd_transport">
+      <EntityTypeMapping TypeName="MGRModel.Typ_pojazd_transport">
+        <MappingFragment StoreEntitySet="Typ_pojazd_transport">
+          <ScalarProperty Name="ID_typ_pojazd_transport" ColumnName="ID_typ_pojazd_transport" />
+          <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Typ_produkt">
+      <EntityTypeMapping TypeName="MGRModel.Typ_produkt">
+        <MappingFragment StoreEntitySet="Typ_produkt">
+          <ScalarProperty Name="ID_typ_produkt" ColumnName="ID_typ_produkt" />
+          <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+          <ScalarProperty Name="ID_podkategoria" ColumnName="ID_podkategoria" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Typ_reklamacja">
+      <EntityTypeMapping TypeName="MGRModel.Typ_reklamacja">
+        <MappingFragment StoreEntitySet="Typ_reklamacja">
+          <ScalarProperty Name="ID_typ_reklamacja" ColumnName="ID_typ_reklamacja" />
+          <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Typ_szkolenie">
+      <EntityTypeMapping TypeName="MGRModel.Typ_szkolenie">
+        <MappingFragment StoreEntitySet="Typ_szkolenie">
+          <ScalarProperty Name="ID_typ_szkolenie" ColumnName="ID_typ_szkolenie" />
+          <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Typ_utylizacja">
+      <EntityTypeMapping TypeName="MGRModel.Typ_utylizacja">
+        <MappingFragment StoreEntitySet="Typ_utylizacja">
+          <ScalarProperty Name="ID_typ_utylizacja" ColumnName="ID_typ_utylizacja" />
+          <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Umowa">
+      <EntityTypeMapping TypeName="MGRModel.Umowa">
+        <MappingFragment StoreEntitySet="Umowa">
+          <ScalarProperty Name="ID_umowa" ColumnName="ID_umowa" />
+          <ScalarProperty Name="ID_wymiar_pracy" ColumnName="ID_wymiar_pracy" />
+          <ScalarProperty Name="ID_rodzaj_umowy" ColumnName="ID_rodzaj_umowy" />
+          <ScalarProperty Name="ID_pracownik" ColumnName="ID_pracownik" />
+          <ScalarProperty Name="ID_posada_pracownika" ColumnName="ID_posada_pracownika" />
+          <ScalarProperty Name="Wynagrodzenie" ColumnName="Wynagrodzenie" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Umowa_sprzedaz_hurt">
+      <EntityTypeMapping TypeName="MGRModel.Umowa_sprzedaz_hurt">
+        <MappingFragment StoreEntitySet="Umowa_sprzedaz_hurt">
+          <ScalarProperty Name="ID_umowa_sprzedaz_hurt" ColumnName="ID_umowa_sprzedaz_hurt" />
+          <ScalarProperty Name="ID_oferta_handlowa" ColumnName="ID_oferta_handlowa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usluga">
+      <EntityTypeMapping TypeName="MGRModel.Usluga">
+        <MappingFragment StoreEntitySet="Usluga">
+          <ScalarProperty Name="ID_usluga" ColumnName="ID_usluga" />
+          <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+          <ScalarProperty Name="Cena" ColumnName="Cena" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Utylizacja">
+      <EntityTypeMapping TypeName="MGRModel.Utylizacja">
+        <MappingFragment StoreEntitySet="Utylizacja">
+          <ScalarProperty Name="ID_utylizacja_magazyn" ColumnName="ID_utylizacja_magazyn" />
+          <ScalarProperty Name="ID_produkt" ColumnName="ID_produkt" />
+          <ScalarProperty Name="ID_typ_utylizacja" ColumnName="ID_typ_utylizacja" />
+          <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Wyksztalcenie">
+      <EntityTypeMapping TypeName="MGRModel.Wyksztalcenie">
+        <MappingFragment StoreEntitySet="Wyksztalcenie">
+          <ScalarProperty Name="ID_wyksztalcenie" ColumnName="ID_wyksztalcenie" />
+          <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Wymiar_pracy">
+      <EntityTypeMapping TypeName="MGRModel.Wymiar_pracy">
+        <MappingFragment StoreEntitySet="Wymiar_pracy">
+          <ScalarProperty Name="ID_wymiar_pracy" ColumnName="ID_wymiar_pracy" />
+          <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
+          <ScalarProperty Name="Wspolczynnik_wynagrodzenia" ColumnName="Wspolczynnik_wynagrodzenia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Wyplata">
+      <EntityTypeMapping TypeName="MGRModel.Wyplata">
+        <MappingFragment StoreEntitySet="Wyplata">
+          <ScalarProperty Name="ID_wyplata" ColumnName="ID_wyplata" />
+          <ScalarProperty Name="ID_Pracownik" ColumnName="ID_Pracownik" />
+          <ScalarProperty Name="Data_wyplaty" ColumnName="Data_wyplaty" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Wysylka_detal">
+      <EntityTypeMapping TypeName="MGRModel.Wysylka_detal">
+        <MappingFragment StoreEntitySet="Wysylka_detal">
+          <ScalarProperty Name="ID_wysylka_detal" ColumnName="ID_wysylka_detal" />
+          <ScalarProperty Name="ID_sprzedaz_usluga_detal" ColumnName="ID_sprzedaz_usluga_detal" />
+          <ScalarProperty Name="ID_pojazd_transport" ColumnName="ID_pojazd_transport" />
+          <ScalarProperty Name="ID_pracownik" ColumnName="ID_pracownik" />
+          <ScalarProperty Name="Data_wysylka" ColumnName="Data_wysylka" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Wysylka_hurt">
+      <EntityTypeMapping TypeName="MGRModel.Wysylka_hurt">
+        <MappingFragment StoreEntitySet="Wysylka_hurt">
+          <ScalarProperty Name="ID_wysylka_hurt" ColumnName="ID_wysylka_hurt" />
+          <ScalarProperty Name="ID_sprzedaz_usluga_hurt" ColumnName="ID_sprzedaz_usluga_hurt" />
+          <ScalarProperty Name="ID_pojazd_transport" ColumnName="ID_pojazd_transport" />
+          <ScalarProperty Name="ID_pracownik" ColumnName="ID_pracownik" />
+          <ScalarProperty Name="Data_wysylka" ColumnName="Data_wysylka" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Zamowienie">
+      <EntityTypeMapping TypeName="MGRModel.Zamowienie">
+        <MappingFragment StoreEntitySet="Zamowienie">
+          <ScalarProperty Name="ID_zamowienie" ColumnName="ID_zamowienie" />
+          <ScalarProperty Name="ID_umowa_sprzedaz_hurt" ColumnName="ID_umowa_sprzedaz_hurt" />
+          <ScalarProperty Name="ID_klient" ColumnName="ID_klient" />
+          <ScalarProperty Name="ID_pracownik" ColumnName="ID_pracownik" />
+          <ScalarProperty Name="ID_stan_realizaji" ColumnName="ID_stan_realizaji" />
+          <ScalarProperty Name="Data_zamowienie" ColumnName="Data_zamowienie" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Zamowienie_szczegol">
+      <EntityTypeMapping TypeName="MGRModel.Zamowienie_szczegol">
+        <MappingFragment StoreEntitySet="Zamowienie_szczegol">
+          <ScalarProperty Name="ID_zamowienie_szczegol" ColumnName="ID_zamowienie_szczegol" />
+          <ScalarProperty Name="ID_zamowienie" ColumnName="ID_zamowienie" />
+          <ScalarProperty Name="ID_produkt" ColumnName="ID_produkt" />
+          <ScalarProperty Name="Ilosc" ColumnName="Ilosc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="v_Dzial_budowa">
+      <EntityTypeMapping TypeName="MGRModel.v_Dzial_budowa">
+        <MappingFragment StoreEntitySet="v_Dzial_budowa">
+          <ScalarProperty Name="Nazwa_produktu" ColumnName="Nazwa produktu" />
+          <ScalarProperty Name="Cena_netto" ColumnName="Cena netto" />
+          <ScalarProperty Name="Gwarancja__lata_" ColumnName="Gwarancja (lata)" />
+          <ScalarProperty Name="Dział" ColumnName="Dział" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="v_Dzial_kuchnia">
+      <EntityTypeMapping TypeName="MGRModel.v_Dzial_kuchnia">
+        <MappingFragment StoreEntitySet="v_Dzial_kuchnia">
+          <ScalarProperty Name="Nazwa_produktu" ColumnName="Nazwa produktu" />
+          <ScalarProperty Name="Cena_netto" ColumnName="Cena netto" />
+          <ScalarProperty Name="Gwarancja__lata_" ColumnName="Gwarancja (lata)" />
+          <ScalarProperty Name="Dział" ColumnName="Dział" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="v_Dzial_lazienka">
+      <EntityTypeMapping TypeName="MGRModel.v_Dzial_lazienka">
+        <MappingFragment StoreEntitySet="v_Dzial_lazienka">
+          <ScalarProperty Name="Nazwa_produktu" ColumnName="Nazwa produktu" />
+          <ScalarProperty Name="Cena_netto" ColumnName="Cena netto" />
+          <ScalarProperty Name="Gwarancja__lata_" ColumnName="Gwarancja (lata)" />
+          <ScalarProperty Name="Dział" ColumnName="Dział" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="v_Dzial_mieszkanie">
+      <EntityTypeMapping TypeName="MGRModel.v_Dzial_mieszkanie">
+        <MappingFragment StoreEntitySet="v_Dzial_mieszkanie">
+          <ScalarProperty Name="Nazwa_produktu" ColumnName="Nazwa produktu" />
+          <ScalarProperty Name="Cena_netto" ColumnName="Cena netto" />
+          <ScalarProperty Name="Gwarancja__lata_" ColumnName="Gwarancja (lata)" />
+          <ScalarProperty Name="Dział" ColumnName="Dział" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="v_Dzial_ogrod_wypoczynek">
+      <EntityTypeMapping TypeName="MGRModel.v_Dzial_ogrod_wypoczynek">
+        <MappingFragment StoreEntitySet="v_Dzial_ogrod_wypoczynek">
+          <ScalarProperty Name="Nazwa_produktu" ColumnName="Nazwa produktu" />
+          <ScalarProperty Name="Cena_netto" ColumnName="Cena netto" />
+          <ScalarProperty Name="Gwarancja__lata_" ColumnName="Gwarancja (lata)" />
+          <ScalarProperty Name="Dział" ColumnName="Dział" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="v_Dzial_technika">
+      <EntityTypeMapping TypeName="MGRModel.v_Dzial_technika">
+        <MappingFragment StoreEntitySet="v_Dzial_technika">
+          <ScalarProperty Name="Nazwa_produktu" ColumnName="Nazwa produktu" />
+          <ScalarProperty Name="Cena_netto" ColumnName="Cena netto" />
+          <ScalarProperty Name="Gwarancja__lata_" ColumnName="Gwarancja (lata)" />
+          <ScalarProperty Name="Dział" ColumnName="Dział" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="v_Products">
+      <EntityTypeMapping TypeName="MGRModel.v_Products">
+        <MappingFragment StoreEntitySet="v_Products">
+          <ScalarProperty Name="Nazwa_produktu" ColumnName="Nazwa produktu" />
+          <ScalarProperty Name="Typ_produktu" ColumnName="Typ produktu" />
+          <ScalarProperty Name="Podkategoria" ColumnName="Podkategoria" />
+          <ScalarProperty Name="Kategoria" ColumnName="Kategoria" />
+          <ScalarProperty Name="Dzial" ColumnName="Dzial" />
+          <ScalarProperty Name="Cena_netto" ColumnName="Cena netto" />
+          <ScalarProperty Name="Gwarancja__lata_" ColumnName="Gwarancja (lata)" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

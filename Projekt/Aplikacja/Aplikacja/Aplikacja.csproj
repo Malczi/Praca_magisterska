@@ -1,0 +1,1000 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4C887379-707C-4A50-A268-7A43566DCFF2}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Aplikacja</RootNamespace>
+    <AssemblyName>Aplikacja</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AddNewClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddNewClient.Designer.cs">
+      <DependentUpon>AddNewClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Add_producent_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Add_producent_form.Designer.cs">
+      <DependentUpon>Add_producent_form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Add_products_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Add_products_form.Designer.cs">
+      <DependentUpon>Add_products_form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Alert.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="All_products_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="All_products_form.Designer.cs">
+      <DependentUpon>All_products_form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Atrybut.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Bath_products_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bath_products_form.Designer.cs">
+      <DependentUpon>Bath_products_form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bulid_products_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Bulid_products_form.Designer.cs">
+      <DependentUpon>Bulid_products_form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Czas_pracy.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dane_adresowe_pracownik.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dostawa.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dostawa_szczegol.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dostawca.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dzial.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Dzial_pracownik.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Email_pracownik.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Etat.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Flat_products_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Flat_products_form.Designer.cs">
+      <DependentUpon>Flat_products_form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forma_platnosc.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Garden_products_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Garden_products_form.Designer.cs">
+      <DependentUpon>Garden_products_form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gwarancja.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HistoriaZakupowForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistoriaZakupowForm.Designer.cs">
+      <DependentUpon>HistoriaZakupowForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Jednostka.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KadryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KadryForm.Designer.cs">
+      <DependentUpon>KadryForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KadryNowyPracownik.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KadryNowyPracownik.Designer.cs">
+      <DependentUpon>KadryNowyPracownik.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KadryPracownikEdycja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KadryPracownikEdycja.Designer.cs">
+      <DependentUpon>KadryPracownikEdycja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kategoria.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Kitchen_products_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kitchen_products_form.Designer.cs">
+      <DependentUpon>Kitchen_products_form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Klient.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KlientEdit_FORM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KlientEdit_FORM.Designer.cs">
+      <DependentUpon>KlientEdit_FORM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Klient_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Klient_form.Designer.cs">
+      <DependentUpon>Klient_form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Magazyn.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MagazynDostawaProdoktowDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MagazynDostawaProdoktowDetails.Designer.cs">
+      <DependentUpon>MagazynDostawaProdoktowDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MagazynDostawaProduktow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MagazynDostawaProduktow.Designer.cs">
+      <DependentUpon>MagazynDostawaProduktow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MagazynForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MagazynForm.Designer.cs">
+      <DependentUpon>MagazynForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MagazynPlanowanyPopyt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MagazynPlanowanyPopyt.Designer.cs">
+      <DependentUpon>MagazynPlanowanyPopyt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MagazynStatystyki.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MagazynStatystyki.Designer.cs">
+      <DependentUpon>MagazynStatystyki.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Miejsce_magazynowania.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelMGR.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelMGR.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelMGR.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelMGR.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelMGR.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Nadgodziny.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NewSalesDETAL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewSalesDETAL.Designer.cs">
+      <DependentUpon>NewSalesDETAL.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewSalesDETAL_Details.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewSalesDETAL_Details.Designer.cs">
+      <DependentUpon>NewSalesDETAL_Details.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Nieobecnosc.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Nr_telefon_pracownik.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Oferta_handlowa.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Oferta_handlowa_szczegol.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Parametr_poziom_magazynowanie.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Parametr_rodzaj_transport.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Parametr_typ_magazynowania.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Podatek.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Podkategoria.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pojazd_transport.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Posada_pracownika.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Poziom_magazynowanie.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pracownik.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProcesHurtOfertaHandlowaDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProcesHurtOfertaHandlowaDetails.Designer.cs">
+      <DependentUpon>ProcesHurtOfertaHandlowaDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProcesHurtSprzedaz.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProcesHurtSprzedaz.Designer.cs">
+      <DependentUpon>ProcesHurtSprzedaz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProcesHurtSprzedazDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProcesHurtSprzedazDetails.Designer.cs">
+      <DependentUpon>ProcesHurtSprzedazDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProcesHurtUmowaSprzedaz.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProcesHurtUmowaSprzedaz.Designer.cs">
+      <DependentUpon>ProcesHurtUmowaSprzedaz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProcesHurtZamowienie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProcesHurtZamowienie.Designer.cs">
+      <DependentUpon>ProcesHurtZamowienie.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProcesHurtZamowienieDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProcesHurtZamowienieDetails.Designer.cs">
+      <DependentUpon>ProcesHurtZamowienieDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Producent.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Produkt.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProcesHurtOfertaHandlowa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProcesHurtOfertaHandlowa.Designer.cs">
+      <DependentUpon>ProcesHurtOfertaHandlowa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rabat.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReklamacjaDetal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReklamacjaDetal.Designer.cs">
+      <DependentUpon>ReklamacjaDetal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReklamacjaDetalDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReklamacjaDetalDetails.Designer.cs">
+      <DependentUpon>ReklamacjaDetalDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReklamacjaHurt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReklamacjaHurt.Designer.cs">
+      <DependentUpon>ReklamacjaHurt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReklamacjaHurtDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReklamacjaHurtDetails.Designer.cs">
+      <DependentUpon>ReklamacjaHurtDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reklamacja_detal.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Reklamacja_hurt.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Rodzaj_nadgodziny.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Rodzaj_nieobecnosci.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Rodzaj_pojazd_transport.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Rodzaj_umowy.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Rozladunek.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SalesDETALform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SalesDETALform.Designer.cs">
+      <DependentUpon>SalesDETALform.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SalesHURTform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SalesHURTform.Designer.cs">
+      <DependentUpon>SalesHURTform.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SalesTypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SalesTypeForm.Designer.cs">
+      <DependentUpon>SalesTypeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Slownik_atrybut.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SprzedazStatystyki.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SprzedazStatystyki.Designer.cs">
+      <DependentUpon>SprzedazStatystyki.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sprzedaz_detal.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sprzedaz_hurt.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sprzedaz_szczegol_detal.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sprzedaz_szczegol_hurt.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sprzedaz_usluga_detal.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Sprzedaz_usluga_hurt.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Stanowisko.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Stan_realizacji.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Stan_realizacji_dostawa.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Stan_techniczny_pojazd_transport.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Status_dostawa.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Status_klient.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Status_oferta.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Szczegol_reklamacja_detal.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Szczegol_reklamacja_hurt.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Szczegol_sprzedaz_usluga_detal.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Szczegol_sprzedaz_usluga_hurt.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Szkolenie_pracownik.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Technic_products_form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Technic_products_form.Designer.cs">
+      <DependentUpon>Technic_products_form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Typ_magazynowania.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Typ_odbioru.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Typ_paliwa.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Typ_parametr_pojazd_transport.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Typ_pojazd_transport.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Typ_produkt.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Typ_reklamacja.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Typ_szkolenie.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Typ_utylizacja.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Umowa.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Umowa_sprzedaz_hurt.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Usluga.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Utylizacja.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_All_avalaible_products.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_All_clients.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_All_delivered_products_magazyn.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_All_detal_sold_products.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_All_detal_sold_products_magazyn.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_All_hurt_sold_products.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_All_hurt_sold_products_magazyn.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_All_hurt_sold_products_magazyn_part2.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Ceny_sugerowane_produk.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Dostawa.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Dostawa_szczegol.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Dzial_alpha.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Dzial_budowa.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Dzial_kuchnia.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Dzial_lazienka.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Dzial_mieszkanie.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Dzial_ogrod_wypoczynek.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Dzial_technika.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Edit_client.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Kategoria_AGD.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Kategoria_alpha.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Kategoria_aneksy_kuchenne.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Kategoria_baterie_kuchenne.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Kategoria_drew_bud.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Kategoria_drzwi.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Kategoria_duze_maszyny.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Kategoria_elektr_narz.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Kategoria_farby_lakiery.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Kategoria_grill.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Kategoria_lamp_zew.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Kategoria_lustra_lazienkowe.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Kategoria_masz_czysz.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Kategoria_masz_ogrod.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Kategoria_mat_bud.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Kategoria_meble.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Kategoria_meble_kuchenne.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Kategoria_meble_lazienkowe.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Kategoria_meb_ogrod.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Kategoria_odsniez_zamiat.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Kategoria_okapy_kuchenne.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Kategoria_okna.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Kategoria_oswietlenie.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Kategoria_podlogi.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Kategoria_prysznice_akcesoria.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Kategoria_recz_narz.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Kategoria_rosliny.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Kategoria_schody_balustrady.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Kategoria_tapety.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Kategoria_toalety.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Kategoria_wanny.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Last_180_Sales_detal.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Last_180_Sales_hurt.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_New_detal_sales.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_New_detal_sales_details.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Oferta_handlowa.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Oferta_handlowa_szczegol.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Oferta_handlowa_szczegol_zaakceptowane.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Oferta_handlowa_zaakceptowane.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Podkategoria_alpha.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Popyt_prediction.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Pracownik_add.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Pracownik_stanowisko.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Procent_magazyn.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Producent_alpha.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Products.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Products_oferta_handlowa.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Reklamacja_detal.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Reklamacja_detal_szczegol.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Reklamacja_hurt.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Reklamacja_hurt_szczegol.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Sprzedaz_hurt.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Sprzedaz_hurt_klient.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Sprzedaz_hurt_klient_detalis.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Sprzedaz_szczegol_hurt.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Typ_alpha_2.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Umowa_sprzedazy_hurt.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Zajetosc_magazynow.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Zamowienie.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Zamowienie_szczegol.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Zwroty.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Zwroty_detal.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="v_Zwroty_hurt.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Wyksztalcenie.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Wymiar_pracy.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Wyplata.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Wysylka_detal.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Wysylka_hurt.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Zamowienie.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Zamowienie_szczegol.cs">
+      <DependentUpon>ModelMGR.tt</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AddNewClient.resx">
+      <DependentUpon>AddNewClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Add_producent_form.resx">
+      <DependentUpon>Add_producent_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Add_products_form.resx">
+      <DependentUpon>Add_products_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="All_products_form.resx">
+      <DependentUpon>All_products_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bath_products_form.resx">
+      <DependentUpon>Bath_products_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bulid_products_form.resx">
+      <DependentUpon>Bulid_products_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Flat_products_form.resx">
+      <DependentUpon>Flat_products_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Garden_products_form.resx">
+      <DependentUpon>Garden_products_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistoriaZakupowForm.resx">
+      <DependentUpon>HistoriaZakupowForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KadryForm.resx">
+      <DependentUpon>KadryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KadryNowyPracownik.resx">
+      <DependentUpon>KadryNowyPracownik.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KadryPracownikEdycja.resx">
+      <DependentUpon>KadryPracownikEdycja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kitchen_products_form.resx">
+      <DependentUpon>Kitchen_products_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KlientEdit_FORM.resx">
+      <DependentUpon>KlientEdit_FORM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Klient_form.resx">
+      <DependentUpon>Klient_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MagazynDostawaProdoktowDetails.resx">
+      <DependentUpon>MagazynDostawaProdoktowDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MagazynDostawaProduktow.resx">
+      <DependentUpon>MagazynDostawaProduktow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MagazynForm.resx">
+      <DependentUpon>MagazynForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MagazynPlanowanyPopyt.resx">
+      <DependentUpon>MagazynPlanowanyPopyt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MagazynStatystyki.resx">
+      <DependentUpon>MagazynStatystyki.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewSalesDETAL.resx">
+      <DependentUpon>NewSalesDETAL.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NewSalesDETAL_Details.resx">
+      <DependentUpon>NewSalesDETAL_Details.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProcesHurtOfertaHandlowaDetails.resx">
+      <DependentUpon>ProcesHurtOfertaHandlowaDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProcesHurtSprzedaz.resx">
+      <DependentUpon>ProcesHurtSprzedaz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProcesHurtSprzedazDetails.resx">
+      <DependentUpon>ProcesHurtSprzedazDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProcesHurtUmowaSprzedaz.resx">
+      <DependentUpon>ProcesHurtUmowaSprzedaz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProcesHurtZamowienie.resx">
+      <DependentUpon>ProcesHurtZamowienie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProcesHurtZamowienieDetails.resx">
+      <DependentUpon>ProcesHurtZamowienieDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="ProcesHurtOfertaHandlowa.resx">
+      <DependentUpon>ProcesHurtOfertaHandlowa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReklamacjaDetal.resx">
+      <DependentUpon>ReklamacjaDetal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReklamacjaDetalDetails.resx">
+      <DependentUpon>ReklamacjaDetalDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReklamacjaHurt.resx">
+      <DependentUpon>ReklamacjaHurt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReklamacjaHurtDetails.resx">
+      <DependentUpon>ReklamacjaHurtDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SalesDETALform.resx">
+      <DependentUpon>SalesDETALform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SalesHURTform.resx">
+      <DependentUpon>SalesHURTform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SalesTypeForm.resx">
+      <DependentUpon>SalesTypeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SprzedazStatystyki.resx">
+      <DependentUpon>SprzedazStatystyki.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Technic_products_form.resx">
+      <DependentUpon>Technic_products_form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="ModelMGR.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelMGR.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="ModelMGR.edmx.diagram">
+      <DependentUpon>ModelMGR.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trash.png" />
+    <None Include="Resources\check.png" />
+    <None Include="Resources\close.png" />
+    <None Include="Resources\add.png" />
+    <None Include="Resources\arrow.png" />
+    <None Include="Resources\power.png" />
+    <None Include="Resources\home-icon-silhouette.png" />
+    <None Include="Resources\user.png" />
+    <None Include="Resources\tools.png" />
+    <None Include="Resources\sofa.png" />
+    <None Include="Resources\SKLEP BUDOWLANY.png" />
+    <None Include="Resources\shower.png" />
+    <None Include="Resources\power-button.png" />
+    <None Include="Resources\park.png" />
+    <None Include="Resources\kitchen.png" />
+    <None Include="Resources\icons8-warehouse-32.png" />
+    <None Include="Resources\icons8-sales-32.png" />
+    <None Include="Resources\icons8-delivery-32.png" />
+    <None Include="Resources\home-button.png" />
+    <None Include="Resources\cubes.png" />
+    <None Include="Resources\brickwall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pencil.png" />
+    <None Include="Resources\shopping-cart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\right-arrow.png" />
+    <None Include="Resources\diskette.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ModelMGR.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelMGR.edmx</DependentUpon>
+      <LastGenOutput>ModelMGR.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="ModelMGR.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelMGR.edmx</DependentUpon>
+      <LastGenOutput>ModelMGR.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

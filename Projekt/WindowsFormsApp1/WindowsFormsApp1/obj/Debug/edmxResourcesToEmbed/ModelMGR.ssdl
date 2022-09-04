@@ -1,0 +1,2693 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MGRModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Alert">
+    <Key>
+      <PropertyRef Name="ID_alert" />
+    </Key>
+    <Property Name="ID_alert" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_dzial" Type="int" Nullable="false" />
+    <Property Name="Tresc" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="Czy_odczytano" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Atrybut">
+    <Key>
+      <PropertyRef Name="ID_atrybut" />
+    </Key>
+    <Property Name="ID_atrybut" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_produkt" Type="int" Nullable="false" />
+    <Property Name="ID_slownik_atrybut" Type="int" Nullable="false" />
+    <Property Name="Wartosc" Type="decimal" Precision="15" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Czas_pracy">
+    <Key>
+      <PropertyRef Name="ID_czas_pracy" />
+    </Key>
+    <Property Name="ID_czas_pracy" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_pracownik" Type="int" Nullable="false" />
+    <Property Name="Data_pracy" Type="date" Nullable="false" />
+    <Property Name="Liczba_godzin" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Dane_adresowe_pracownik">
+    <Key>
+      <PropertyRef Name="ID_dane_adresowe_pracownik" />
+    </Key>
+    <Property Name="ID_dane_adresowe_pracownik" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_pracownik" Type="int" Nullable="false" />
+    <Property Name="Miejscowosc" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Ulica" Type="nvarchar" MaxLength="50" />
+    <Property Name="Nr_budynku" Type="int" Nullable="false" />
+    <Property Name="Nr_lokalu" Type="int" />
+    <Property Name="Kod_pocztowy" Type="nvarchar" MaxLength="6" Nullable="false" />
+    <Property Name="Data_od" Type="date" Nullable="false" />
+    <Property Name="Data_do" Type="date" />
+  </EntityType>
+  <EntityType Name="Dostawa">
+    <Key>
+      <PropertyRef Name="ID_dostawa" />
+    </Key>
+    <Property Name="ID_dostawa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_dostawca" Type="int" Nullable="false" />
+    <Property Name="ID_pracownik" Type="int" Nullable="false" />
+    <Property Name="Data_dostawa" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Dostawa_szczegol">
+    <Key>
+      <PropertyRef Name="ID_dostawa_szczegol" />
+    </Key>
+    <Property Name="ID_dostawa_szczegol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_dostawa" Type="int" Nullable="false" />
+    <Property Name="ID_produkt" Type="int" Nullable="false" />
+    <Property Name="Ilosc" Type="int" Nullable="false" />
+    <Property Name="Cena_szt" Type="decimal" Precision="15" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Dostawca">
+    <Key>
+      <PropertyRef Name="ID_dostawca" />
+    </Key>
+    <Property Name="ID_dostawca" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nazwa" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Nr_telefon" Type="nvarchar" MaxLength="9" Nullable="false" />
+    <Property Name="Adres_email" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Kod_pocztowy" Type="nvarchar" MaxLength="6" Nullable="false" />
+    <Property Name="Miasto" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Ulica" Type="nvarchar" MaxLength="50" />
+    <Property Name="Nr_budynku" Type="int" Nullable="false" />
+    <Property Name="Nr_lokalu" Type="int" />
+    <Property Name="NIP" Type="nvarchar" MaxLength="10" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Dzial">
+    <Key>
+      <PropertyRef Name="ID_dzial" />
+    </Key>
+    <Property Name="ID_dzial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nazwa" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Dzial_pracownik">
+    <Key>
+      <PropertyRef Name="ID_dzial_pracownik" />
+    </Key>
+    <Property Name="ID_dzial_pracownik" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nazwa_dzial_pracownik" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Email_pracownik">
+    <Key>
+      <PropertyRef Name="ID_email_pracownik" />
+    </Key>
+    <Property Name="ID_email_pracownik" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_pracownik" Type="int" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Data_od" Type="date" Nullable="false" />
+    <Property Name="Data_do" Type="date" />
+  </EntityType>
+  <EntityType Name="Etat">
+    <Key>
+      <PropertyRef Name="ID_etat" />
+    </Key>
+    <Property Name="ID_etat" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_stanowisko" Type="int" Nullable="false" />
+    <Property Name="Liczba_miejsc" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Forma_platnosc">
+    <Key>
+      <PropertyRef Name="ID_forma_platnosc" />
+    </Key>
+    <Property Name="ID_forma_platnosc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Forma_platnosc" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Gwarancja">
+    <Key>
+      <PropertyRef Name="ID_gwarancja" />
+    </Key>
+    <Property Name="ID_gwarancja" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Opis_gwarancja" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="Okres_gwarancja" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Jednostka">
+    <Key>
+      <PropertyRef Name="ID_jednostka" />
+    </Key>
+    <Property Name="ID_jednostka" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nazwa" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Kategoria">
+    <Key>
+      <PropertyRef Name="ID_kategoria" />
+    </Key>
+    <Property Name="ID_kategoria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nazwa" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ID_dzial" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Klient">
+    <Key>
+      <PropertyRef Name="ID_klient" />
+    </Key>
+    <Property Name="ID_klient" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nazwisko" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Imie" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Nazwa_firmy" Type="nvarchar" MaxLength="100" />
+    <Property Name="NIP" Type="nvarchar" MaxLength="10" />
+    <Property Name="Nr_telefonu_1" Type="nvarchar" MaxLength="12" Nullable="false" />
+    <Property Name="Nr_telefonu_2" Type="nvarchar" MaxLength="12" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" />
+    <Property Name="Miasto" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Kod_pocztowy" Type="nvarchar" MaxLength="6" Nullable="false" />
+    <Property Name="Ulica" Type="nvarchar" MaxLength="50" />
+    <Property Name="Nr_domu" Type="int" />
+    <Property Name="Nr_lokalu" Type="int" />
+    <Property Name="ID_status_klient" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Miejsce_magazynowania">
+    <Key>
+      <PropertyRef Name="ID_miejsce_magazynowania" />
+    </Key>
+    <Property Name="ID_miejsce_magazynowania" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_produkt" Type="int" Nullable="false" />
+    <Property Name="ID_typ_magazynowania" Type="int" Nullable="false" />
+    <Property Name="ID_poziom_magazynowanie" Type="int" Nullable="false" />
+    <Property Name="Nr_miejsca" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Nadgodziny">
+    <Key>
+      <PropertyRef Name="ID_nadgodziny" />
+    </Key>
+    <Property Name="ID_nadgodziny" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_pracownik" Type="int" Nullable="false" />
+    <Property Name="Data_nadgodziny" Type="date" Nullable="false" />
+    <Property Name="ID_rodzaj_nadgodziny" Type="int" Nullable="false" />
+    <Property Name="Czas" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Nieobecnosc">
+    <Key>
+      <PropertyRef Name="ID_nieobecnosc" />
+    </Key>
+    <Property Name="ID_nieobecnosc" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_pracownik" Type="int" />
+    <Property Name="ID_rodzaj_nieobecnosci" Type="int" />
+    <Property Name="Data_od" Type="date" Nullable="false" />
+    <Property Name="Data_do" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Nr_telefon_pracownik">
+    <Key>
+      <PropertyRef Name="ID_Nr_telefon_pracownik" />
+    </Key>
+    <Property Name="ID_Nr_telefon_pracownik" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_pracownik" Type="int" Nullable="false" />
+    <Property Name="Numer" Type="nvarchar" MaxLength="9" Nullable="false" />
+    <Property Name="Data_od" Type="date" Nullable="false" />
+    <Property Name="Data_do" Type="date" />
+  </EntityType>
+  <EntityType Name="Oferta_handlowa">
+    <Key>
+      <PropertyRef Name="ID_oferta_handlowa" />
+    </Key>
+    <Property Name="ID_oferta_handlowa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_pracownik" Type="int" Nullable="false" />
+    <Property Name="Termin_realizacja" Type="date" Nullable="false" />
+    <Property Name="ID_status_oferta" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Oferta_handlowa_szczegol">
+    <Key>
+      <PropertyRef Name="ID_oferta_handlowa_szczegol" />
+    </Key>
+    <Property Name="ID_oferta_handlowa_szczegol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_oferta_handlowa" Type="int" Nullable="false" />
+    <Property Name="ID_produkt" Type="int" Nullable="false" />
+    <Property Name="Ilosc" Type="int" Nullable="false" />
+    <Property Name="Cena_netto_za_jednostke" Type="int" Nullable="false" />
+    <Property Name="ID_podatek" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Parametr_poziom_magazynowanie">
+    <Key>
+      <PropertyRef Name="ID_parametr_poziom_magazynowanie" />
+    </Key>
+    <Property Name="ID_parametr_poziom_magazynowanie" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_poziom_magazynowanie" Type="int" Nullable="false" />
+    <Property Name="Parametr" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Wartosc_dolna" Type="int" Nullable="false" />
+    <Property Name="Wartosc_gorna" Type="int" Nullable="false" />
+    <Property Name="ID_jednostka" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Parametr_rodzaj_transport">
+    <Key>
+      <PropertyRef Name="ID_parametr_pojazd_transport" />
+    </Key>
+    <Property Name="ID_parametr_pojazd_transport" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_pojazd_transport" Type="int" Nullable="false" />
+    <Property Name="ID_typ_parametr_pojazd_transport" Type="int" Nullable="false" />
+    <Property Name="Wartosc" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Parametr_typ_magazynowania">
+    <Key>
+      <PropertyRef Name="ID_parametr_typ_magazynowania" />
+    </Key>
+    <Property Name="ID_parametr_typ_magazynowania" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_typ_magazynowania" Type="int" Nullable="false" />
+    <Property Name="Parametr" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Wartosc_dolna" Type="int" Nullable="false" />
+    <Property Name="Wartosc_gorna" Type="int" Nullable="false" />
+    <Property Name="ID_jednostka" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Podatek">
+    <Key>
+      <PropertyRef Name="ID_podatek" />
+    </Key>
+    <Property Name="ID_podatek" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Procent" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Podkategoria">
+    <Key>
+      <PropertyRef Name="ID_podkategoria" />
+    </Key>
+    <Property Name="ID_podkategoria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nazwa" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ID_Kategoria" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Pojazd_transport">
+    <Key>
+      <PropertyRef Name="ID_pojazd_transport" />
+    </Key>
+    <Property Name="ID_pojazd_transport" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Marka" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Model" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Nr_rejestracyjny" Type="nvarchar" MaxLength="6" />
+    <Property Name="ID_typ_pojad_transport" Type="int" Nullable="false" />
+    <Property Name="ID_rodzaj_pojazd_transport" Type="int" Nullable="false" />
+    <Property Name="ID_stan_techniczny_pojazd_transport" Type="int" Nullable="false" />
+    <Property Name="Sr_spalanie_wg_producenta" Type="decimal" Precision="15" Scale="2" Nullable="false" />
+    <Property Name="ID_typ_paliwa" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Posada_pracownika">
+    <Key>
+      <PropertyRef Name="ID_posada_pracownika" />
+    </Key>
+    <Property Name="ID_posada_pracownika" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_etat" Type="int" />
+    <Property Name="Data_od" Type="date" Nullable="false" />
+    <Property Name="Data_do" Type="date" />
+  </EntityType>
+  <EntityType Name="Poziom_magazynowanie">
+    <Key>
+      <PropertyRef Name="ID_poziom_magazynowanie" />
+    </Key>
+    <Property Name="ID_poziom_magazynowanie" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Poziom" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Pracownik">
+    <Key>
+      <PropertyRef Name="ID_pracownik" />
+    </Key>
+    <Property Name="ID_pracownik" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nazwisko" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Imie" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Nr_dowodu" Type="nvarchar" MaxLength="9" Nullable="false" />
+    <Property Name="PESEL" Type="nvarchar" MaxLength="11" Nullable="false" />
+    <Property Name="ID_wyksztalcenie" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Producent">
+    <Key>
+      <PropertyRef Name="ID_producent" />
+    </Key>
+    <Property Name="ID_producent" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nazwa" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Adres_URL" Type="nvarchar" MaxLength="250" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Produkt">
+    <Key>
+      <PropertyRef Name="ID_produkt" />
+    </Key>
+    <Property Name="ID_produkt" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nazwa" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ID_producent" Type="int" Nullable="false" />
+    <Property Name="ID_typ_produkt" Type="int" Nullable="false" />
+    <Property Name="Nr_produkt" Type="int" Nullable="false" />
+    <Property Name="Cena_sugerowana_netto" Type="decimal" Precision="15" Scale="2" Nullable="false" />
+    <Property Name="Termin_magazynowania_miesiace" Type="int" />
+    <Property Name="Termin_przydatnosci_miesiace" Type="int" />
+    <Property Name="Objetosc_magazynowa_m3" Type="decimal" Precision="15" Scale="2" Nullable="false" />
+    <Property Name="ID_gwarancja" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Rabat">
+    <Key>
+      <PropertyRef Name="ID_rabat" />
+    </Key>
+    <Property Name="ID_rabat" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nazwa" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Rabat" Type="decimal" Precision="15" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Reklamacja_detal">
+    <Key>
+      <PropertyRef Name="ID_reklamacja_detal" />
+    </Key>
+    <Property Name="ID_reklamacja_detal" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_pracownik" Type="int" Nullable="false" />
+    <Property Name="ID_sprzedaz_detal" Type="int" Nullable="false" />
+    <Property Name="Data_reklamacja" Type="date" Nullable="false" />
+    <Property Name="Opis_reklamacja" Type="nvarchar" MaxLength="250" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Reklamacja_hurt">
+    <Key>
+      <PropertyRef Name="ID_reklamacja_hurt" />
+    </Key>
+    <Property Name="ID_reklamacja_hurt" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_pracownik" Type="int" Nullable="false" />
+    <Property Name="ID_sprzedaz_hurt" Type="int" Nullable="false" />
+    <Property Name="Data_reklamacja" Type="date" Nullable="false" />
+    <Property Name="Opis_reklamacja" Type="nvarchar" MaxLength="250" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Rodzaj_nadgodziny">
+    <Key>
+      <PropertyRef Name="ID_rodzaj_nadgodziny" />
+    </Key>
+    <Property Name="ID_rodzaj_nadgodziny" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nazwa" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Rodzaj_nieobecnosci">
+    <Key>
+      <PropertyRef Name="ID_rodzaj_nieobecnosci" />
+    </Key>
+    <Property Name="ID_rodzaj_nieobecnosci" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Symbol" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="Wspolczynnik_wynagrodzenia" Type="decimal" Precision="15" Scale="2" />
+  </EntityType>
+  <EntityType Name="Rodzaj_pojazd_transport">
+    <Key>
+      <PropertyRef Name="ID_rodzaj_pojazd_transport" />
+    </Key>
+    <Property Name="ID_rodzaj_pojazd_transport" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nazwa" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Rodzaj_umowy">
+    <Key>
+      <PropertyRef Name="ID_rodzaj_umowy" />
+    </Key>
+    <Property Name="ID_rodzaj_umowy" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nazwa" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Urlop" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Rozladunek">
+    <Key>
+      <PropertyRef Name="ID_rozladunek" />
+    </Key>
+    <Property Name="ID_rozladunek" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_dostawa" Type="int" Nullable="false" />
+    <Property Name="ID_pojazd_transport" Type="int" Nullable="false" />
+    <Property Name="ID_pracownik" Type="int" Nullable="false" />
+    <Property Name="Data_rozladunek" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Slownik_atrybut">
+    <Key>
+      <PropertyRef Name="ID_slownik_atrybut" />
+    </Key>
+    <Property Name="ID_slownik_atrybut" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nazwa" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ID_jednostka" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sprzedaz_detal">
+    <Key>
+      <PropertyRef Name="ID_sprzedaz_detal" />
+    </Key>
+    <Property Name="ID_sprzedaz_detal" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Data_sprzedazy" Type="date" Nullable="false" />
+    <Property Name="Termin_zaplata" Type="date" Nullable="false" />
+    <Property Name="ID_forma_platnosc" Type="int" Nullable="false" />
+    <Property Name="ID_Typ_odbioru" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sprzedaz_hurt">
+    <Key>
+      <PropertyRef Name="ID_sprzedaz_hurt" />
+    </Key>
+    <Property Name="ID_sprzedaz_hurt" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_zamowienie" Type="int" Nullable="false" />
+    <Property Name="Data_sprzedazy" Type="date" Nullable="false" />
+    <Property Name="Termin_zaplata" Type="date" Nullable="false" />
+    <Property Name="ID_forma_platnosc" Type="int" Nullable="false" />
+    <Property Name="ID_Typ_odbioru" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sprzedaz_szczegol_detal">
+    <Key>
+      <PropertyRef Name="ID_sprzedaz_szczegol_detal" />
+    </Key>
+    <Property Name="ID_sprzedaz_szczegol_detal" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_sprzedaz_detal" Type="int" Nullable="false" />
+    <Property Name="ID_produkt" Type="int" Nullable="false" />
+    <Property Name="ID_jednostka" Type="int" Nullable="false" />
+    <Property Name="Cena_netto_za_jednostke" Type="int" Nullable="false" />
+    <Property Name="ID_podatek" Type="int" Nullable="false" />
+    <Property Name="Ilosc" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sprzedaz_szczegol_hurt">
+    <Key>
+      <PropertyRef Name="ID_sprzedaz_szczegol_hurt" />
+    </Key>
+    <Property Name="ID_sprzedaz_szczegol_hurt" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_sprzedaz_hurt" Type="int" Nullable="false" />
+    <Property Name="ID_produkt" Type="int" Nullable="false" />
+    <Property Name="ID_jednostka" Type="int" Nullable="false" />
+    <Property Name="Ilosc" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sprzedaz_usluga_detal">
+    <Key>
+      <PropertyRef Name="ID_sprzedaz_usluga_detal" />
+    </Key>
+    <Property Name="ID_sprzedaz_usluga_detal" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_sprzedaz_detal" Type="int" Nullable="false" />
+    <Property Name="ID_pracownik" Type="int" Nullable="false" />
+    <Property Name="Termin_zaplata" Type="date" Nullable="false" />
+    <Property Name="ID_forma_platnosc" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sprzedaz_usluga_hurt">
+    <Key>
+      <PropertyRef Name="ID_sprzedaz_usluga_hurt" />
+    </Key>
+    <Property Name="ID_sprzedaz_usluga_hurt" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_sprzedaz_hurt" Type="int" Nullable="false" />
+    <Property Name="ID_pracownik" Type="int" Nullable="false" />
+    <Property Name="Termin_zaplata" Type="date" Nullable="false" />
+    <Property Name="ID_forma_platnosc" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Stan_realizacji">
+    <Key>
+      <PropertyRef Name="ID_stan_realizacji" />
+    </Key>
+    <Property Name="ID_stan_realizacji" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nazwa_stan_realizaji" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Stan_realizacji_dostawa">
+    <Key>
+      <PropertyRef Name="ID_stan_realizacji_dostawa" />
+    </Key>
+    <Property Name="ID_stan_realizacji_dostawa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_dostawa" Type="int" Nullable="false" />
+    <Property Name="ID_status_dostawa" Type="int" Nullable="false" />
+    <Property Name="Data_st" Type="smalldatetime" Nullable="false" />
+    <Property Name="ID_pracownik" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Stan_techniczny_pojazd_transport">
+    <Key>
+      <PropertyRef Name="ID_stan_techniczny_pojazd_transport" />
+    </Key>
+    <Property Name="ID_stan_techniczny_pojazd_transport" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nazwa" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Stanowisko">
+    <Key>
+      <PropertyRef Name="ID_stanowisko" />
+    </Key>
+    <Property Name="ID_stanowisko" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nazwa_stanowiska" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ID_dzial_pracownik" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Status_dostawa">
+    <Key>
+      <PropertyRef Name="ID_status_dostawa" />
+    </Key>
+    <Property Name="ID_status_dostawa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nazwa_status" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Status_klient">
+    <Key>
+      <PropertyRef Name="ID_status_klient" />
+    </Key>
+    <Property Name="ID_status_klient" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nazwa" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ID_rabat" Type="int" />
+  </EntityType>
+  <EntityType Name="Status_oferta">
+    <Key>
+      <PropertyRef Name="ID_status_oferta" />
+    </Key>
+    <Property Name="ID_status_oferta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nazwa_status_oferta" Type="nvarchar" MaxLength="30" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Szczegol_reklamacja_detal">
+    <Key>
+      <PropertyRef Name="ID_szczegol_reklamacja_detal" />
+    </Key>
+    <Property Name="ID_szczegol_reklamacja_detal" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_reklamacja_detal" Type="int" Nullable="false" />
+    <Property Name="ID_typ_reklamacja" Type="int" Nullable="false" />
+    <Property Name="ID_produkt" Type="int" Nullable="false" />
+    <Property Name="Ilosc" Type="int" Nullable="false" />
+    <Property Name="Utylizacja" Type="bit" Nullable="false" />
+    <Property Name="Uwagi" Type="nvarchar" MaxLength="250" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Szczegol_reklamacja_hurt">
+    <Key>
+      <PropertyRef Name="ID_szczegol_reklamacja_hurt" />
+    </Key>
+    <Property Name="ID_szczegol_reklamacja_hurt" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_reklamacja_hurt" Type="int" Nullable="false" />
+    <Property Name="ID_typ_reklamacja" Type="int" Nullable="false" />
+    <Property Name="ID_produkt" Type="int" Nullable="false" />
+    <Property Name="Ilosc" Type="int" Nullable="false" />
+    <Property Name="Utylizacja" Type="bit" Nullable="false" />
+    <Property Name="Uwagi" Type="nvarchar" MaxLength="250" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Szczegol_sprzedaz_usluga_detal">
+    <Key>
+      <PropertyRef Name="ID_szczegol_sprzedaz_usluga_detal" />
+    </Key>
+    <Property Name="ID_szczegol_sprzedaz_usluga_detal" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_sprzedaz_usuluga_detal" Type="int" Nullable="false" />
+    <Property Name="ID_usluga" Type="int" Nullable="false" />
+    <Property Name="Data_sprzedaz_usluga" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Szczegol_sprzedaz_usluga_hurt">
+    <Key>
+      <PropertyRef Name="ID_szczegol_sprzedaz_usluga_hurt" />
+    </Key>
+    <Property Name="ID_szczegol_sprzedaz_usluga_hurt" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_sprzedaz_usuluga_hurt" Type="int" Nullable="false" />
+    <Property Name="ID_usluga" Type="int" Nullable="false" />
+    <Property Name="Data_sprzedaz_usluga" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Szkolenie_pracownik">
+    <Key>
+      <PropertyRef Name="ID_szkolenie_pracownik" />
+    </Key>
+    <Property Name="ID_szkolenie_pracownik" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_typ_szkolenie" Type="int" Nullable="false" />
+    <Property Name="ID_pracownik" Type="int" Nullable="false" />
+    <Property Name="Data_od" Type="date" Nullable="false" />
+    <Property Name="Data_do" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Typ_magazynowania">
+    <Key>
+      <PropertyRef Name="ID_typ_magazynowania" />
+    </Key>
+    <Property Name="ID_typ_magazynowania" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nazwa" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Typ_odbioru">
+    <Key>
+      <PropertyRef Name="ID_typ_odbioru" />
+    </Key>
+    <Property Name="ID_typ_odbioru" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Typ_odbioru" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Typ_paliwa">
+    <Key>
+      <PropertyRef Name="ID_typ_paliwa" />
+    </Key>
+    <Property Name="ID_typ_paliwa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nazwa" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Typ_parametr_pojazd_transport">
+    <Key>
+      <PropertyRef Name="ID_typ_parametr_pojazd_transport" />
+    </Key>
+    <Property Name="ID_typ_parametr_pojazd_transport" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nazwa" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ID_jednostka" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Typ_pojazd_transport">
+    <Key>
+      <PropertyRef Name="ID_typ_pojazd_transport" />
+    </Key>
+    <Property Name="ID_typ_pojazd_transport" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nazwa" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Typ_produkt">
+    <Key>
+      <PropertyRef Name="ID_typ_produkt" />
+    </Key>
+    <Property Name="ID_typ_produkt" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nazwa" Type="nvarchar" MaxLength="50" />
+    <Property Name="ID_podkategoria" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Typ_reklamacja">
+    <Key>
+      <PropertyRef Name="ID_typ_reklamacja" />
+    </Key>
+    <Property Name="ID_typ_reklamacja" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nazwa" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Typ_szkolenie">
+    <Key>
+      <PropertyRef Name="ID_typ_szkolenie" />
+    </Key>
+    <Property Name="ID_typ_szkolenie" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nazwa" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Typ_utylizacja">
+    <Key>
+      <PropertyRef Name="ID_typ_utylizacja" />
+    </Key>
+    <Property Name="ID_typ_utylizacja" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nazwa" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Umowa">
+    <Key>
+      <PropertyRef Name="ID_umowa" />
+    </Key>
+    <Property Name="ID_umowa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_wymiar_pracy" Type="int" />
+    <Property Name="ID_rodzaj_umowy" Type="int" />
+    <Property Name="ID_pracownik" Type="int" />
+    <Property Name="ID_posada_pracownika" Type="int" />
+    <Property Name="Wynagrodzenie" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Umowa_sprzedaz_hurt">
+    <Key>
+      <PropertyRef Name="ID_umowa_sprzedaz_hurt" />
+    </Key>
+    <Property Name="ID_umowa_sprzedaz_hurt" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_oferta_handlowa" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Usluga">
+    <Key>
+      <PropertyRef Name="ID_usluga" />
+    </Key>
+    <Property Name="ID_usluga" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nazwa" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Cena" Type="decimal" Precision="15" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Utylizacja">
+    <Key>
+      <PropertyRef Name="ID_utylizacja_magazyn" />
+    </Key>
+    <Property Name="ID_utylizacja_magazyn" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_produkt" Type="int" Nullable="false" />
+    <Property Name="ID_typ_utylizacja" Type="int" />
+    <Property Name="Ilosc" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Wyksztalcenie">
+    <Key>
+      <PropertyRef Name="ID_wyksztalcenie" />
+    </Key>
+    <Property Name="ID_wyksztalcenie" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nazwa" Type="varchar" MaxLength="35" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Wymiar_pracy">
+    <Key>
+      <PropertyRef Name="ID_wymiar_pracy" />
+    </Key>
+    <Property Name="ID_wymiar_pracy" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nazwa" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Wspolczynnik_wynagrodzenia" Type="decimal" Precision="15" Scale="2" />
+  </EntityType>
+  <EntityType Name="Wyplata">
+    <Key>
+      <PropertyRef Name="ID_wyplata" />
+    </Key>
+    <Property Name="ID_wyplata" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Pracownik" Type="int" Nullable="false" />
+    <Property Name="Data_wyplaty" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Wysylka_detal">
+    <Key>
+      <PropertyRef Name="ID_wysylka_detal" />
+    </Key>
+    <Property Name="ID_wysylka_detal" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_sprzedaz_usluga_detal" Type="int" Nullable="false" />
+    <Property Name="ID_pojazd_transport" Type="int" Nullable="false" />
+    <Property Name="ID_pracownik" Type="int" Nullable="false" />
+    <Property Name="Data_wysylka" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Wysylka_hurt">
+    <Key>
+      <PropertyRef Name="ID_wysylka_hurt" />
+    </Key>
+    <Property Name="ID_wysylka_hurt" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_sprzedaz_usluga_hurt" Type="int" Nullable="false" />
+    <Property Name="ID_pojazd_transport" Type="int" Nullable="false" />
+    <Property Name="ID_pracownik" Type="int" Nullable="false" />
+    <Property Name="Data_wysylka" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Zamowienie">
+    <Key>
+      <PropertyRef Name="ID_zamowienie" />
+    </Key>
+    <Property Name="ID_zamowienie" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_umowa_sprzedaz_hurt" Type="int" Nullable="false" />
+    <Property Name="ID_klient" Type="int" Nullable="false" />
+    <Property Name="ID_pracownik" Type="int" Nullable="false" />
+    <Property Name="ID_stan_realizaji" Type="int" />
+    <Property Name="Data_zamowienie" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Zamowienie_szczegol">
+    <Key>
+      <PropertyRef Name="ID_zamowienie_szczegol" />
+    </Key>
+    <Property Name="ID_zamowienie_szczegol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_zamowienie" Type="int" Nullable="false" />
+    <Property Name="ID_produkt" Type="int" Nullable="false" />
+    <Property Name="Ilosc" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'MGR.dbo.v_Dzial_budowa' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="v_Dzial_budowa">
+    <Key>
+      <PropertyRef Name="Nazwa produktu" />
+      <PropertyRef Name="Cena netto" />
+      <PropertyRef Name="Gwarancja (lata)" />
+      <PropertyRef Name="Dział" />
+    </Key>
+    <Property Name="Nazwa produktu" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Cena netto" Type="decimal" Precision="15" Scale="2" Nullable="false" />
+    <Property Name="Gwarancja (lata)" Type="int" Nullable="false" />
+    <Property Name="Dział" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'MGR.dbo.v_Dzial_kuchnia' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="v_Dzial_kuchnia">
+    <Key>
+      <PropertyRef Name="Nazwa produktu" />
+      <PropertyRef Name="Cena netto" />
+      <PropertyRef Name="Gwarancja (lata)" />
+      <PropertyRef Name="Dział" />
+    </Key>
+    <Property Name="Nazwa produktu" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Cena netto" Type="decimal" Precision="15" Scale="2" Nullable="false" />
+    <Property Name="Gwarancja (lata)" Type="int" Nullable="false" />
+    <Property Name="Dział" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'MGR.dbo.v_Dzial_lazienka' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="v_Dzial_lazienka">
+    <Key>
+      <PropertyRef Name="Nazwa produktu" />
+      <PropertyRef Name="Cena netto" />
+      <PropertyRef Name="Gwarancja (lata)" />
+      <PropertyRef Name="Dział" />
+    </Key>
+    <Property Name="Nazwa produktu" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Cena netto" Type="decimal" Precision="15" Scale="2" Nullable="false" />
+    <Property Name="Gwarancja (lata)" Type="int" Nullable="false" />
+    <Property Name="Dział" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'MGR.dbo.v_Dzial_mieszkanie' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="v_Dzial_mieszkanie">
+    <Key>
+      <PropertyRef Name="Nazwa produktu" />
+      <PropertyRef Name="Cena netto" />
+      <PropertyRef Name="Gwarancja (lata)" />
+      <PropertyRef Name="Dział" />
+    </Key>
+    <Property Name="Nazwa produktu" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Cena netto" Type="decimal" Precision="15" Scale="2" Nullable="false" />
+    <Property Name="Gwarancja (lata)" Type="int" Nullable="false" />
+    <Property Name="Dział" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'MGR.dbo.v_Dzial_ogrod_wypoczynek' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="v_Dzial_ogrod_wypoczynek">
+    <Key>
+      <PropertyRef Name="Nazwa produktu" />
+      <PropertyRef Name="Cena netto" />
+      <PropertyRef Name="Gwarancja (lata)" />
+      <PropertyRef Name="Dział" />
+    </Key>
+    <Property Name="Nazwa produktu" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Cena netto" Type="decimal" Precision="15" Scale="2" Nullable="false" />
+    <Property Name="Gwarancja (lata)" Type="int" Nullable="false" />
+    <Property Name="Dział" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'MGR.dbo.v_Dzial_technika' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="v_Dzial_technika">
+    <Key>
+      <PropertyRef Name="Nazwa produktu" />
+      <PropertyRef Name="Cena netto" />
+      <PropertyRef Name="Gwarancja (lata)" />
+      <PropertyRef Name="Dział" />
+    </Key>
+    <Property Name="Nazwa produktu" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Cena netto" Type="decimal" Precision="15" Scale="2" Nullable="false" />
+    <Property Name="Gwarancja (lata)" Type="int" Nullable="false" />
+    <Property Name="Dział" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'MGR.dbo.v_Products' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="v_Products">
+    <Key>
+      <PropertyRef Name="Nazwa produktu" />
+      <PropertyRef Name="Podkategoria" />
+      <PropertyRef Name="Kategoria" />
+      <PropertyRef Name="Dzial" />
+      <PropertyRef Name="Cena netto" />
+      <PropertyRef Name="Gwarancja (lata)" />
+    </Key>
+    <Property Name="Nazwa produktu" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Typ produktu" Type="nvarchar" MaxLength="50" />
+    <Property Name="Podkategoria" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Kategoria" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Dzial" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Cena netto" Type="decimal" Precision="15" Scale="2" Nullable="false" />
+    <Property Name="Gwarancja (lata)" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Alert__ID_dzial__2F10007B">
+    <End Role="Dzial" Type="Self.Dzial" Multiplicity="1" />
+    <End Role="Alert" Type="Self.Alert" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dzial">
+        <PropertyRef Name="ID_dzial" />
+      </Principal>
+      <Dependent Role="Alert">
+        <PropertyRef Name="ID_dzial" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Atrybut__ID_prod__4F7CD00D">
+    <End Role="Produkt" Type="Self.Produkt" Multiplicity="1" />
+    <End Role="Atrybut" Type="Self.Atrybut" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Produkt">
+        <PropertyRef Name="ID_produkt" />
+      </Principal>
+      <Dependent Role="Atrybut">
+        <PropertyRef Name="ID_produkt" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Atrybut__ID_slow__5070F446">
+    <End Role="Slownik_atrybut" Type="Self.Slownik_atrybut" Multiplicity="1" />
+    <End Role="Atrybut" Type="Self.Atrybut" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Slownik_atrybut">
+        <PropertyRef Name="ID_slownik_atrybut" />
+      </Principal>
+      <Dependent Role="Atrybut">
+        <PropertyRef Name="ID_slownik_atrybut" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Czas_prac__ID_pr__02084FDA">
+    <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="1" />
+    <End Role="Czas_pracy" Type="Self.Czas_pracy" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownik">
+        <PropertyRef Name="ID_pracownik" />
+      </Principal>
+      <Dependent Role="Czas_pracy">
+        <PropertyRef Name="ID_pracownik" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Dane_adre__ID_pr__59FA5E80">
+    <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="1" />
+    <End Role="Dane_adresowe_pracownik" Type="Self.Dane_adresowe_pracownik" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownik">
+        <PropertyRef Name="ID_pracownik" />
+      </Principal>
+      <Dependent Role="Dane_adresowe_pracownik">
+        <PropertyRef Name="ID_pracownik" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Dostawa__ID_dost__0F624AF8">
+    <End Role="Dostawca" Type="Self.Dostawca" Multiplicity="1" />
+    <End Role="Dostawa" Type="Self.Dostawa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dostawca">
+        <PropertyRef Name="ID_dostawca" />
+      </Principal>
+      <Dependent Role="Dostawa">
+        <PropertyRef Name="ID_dostawca" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Dostawa__ID_prac__10566F31">
+    <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="1" />
+    <End Role="Dostawa" Type="Self.Dostawa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownik">
+        <PropertyRef Name="ID_pracownik" />
+      </Principal>
+      <Dependent Role="Dostawa">
+        <PropertyRef Name="ID_pracownik" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Dostawa_s__ID_do__1332DBDC">
+    <End Role="Dostawa" Type="Self.Dostawa" Multiplicity="1" />
+    <End Role="Dostawa_szczegol" Type="Self.Dostawa_szczegol" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dostawa">
+        <PropertyRef Name="ID_dostawa" />
+      </Principal>
+      <Dependent Role="Dostawa_szczegol">
+        <PropertyRef Name="ID_dostawa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Dostawa_s__ID_pr__14270015">
+    <End Role="Produkt" Type="Self.Produkt" Multiplicity="1" />
+    <End Role="Dostawa_szczegol" Type="Self.Dostawa_szczegol" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Produkt">
+        <PropertyRef Name="ID_produkt" />
+      </Principal>
+      <Dependent Role="Dostawa_szczegol">
+        <PropertyRef Name="ID_produkt" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Email_pra__ID_pr__5FB337D6">
+    <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="1" />
+    <End Role="Email_pracownik" Type="Self.Email_pracownik" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownik">
+        <PropertyRef Name="ID_pracownik" />
+      </Principal>
+      <Dependent Role="Email_pracownik">
+        <PropertyRef Name="ID_pracownik" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Etat__ID_stanowi__6754599E">
+    <End Role="Stanowisko" Type="Self.Stanowisko" Multiplicity="1" />
+    <End Role="Etat" Type="Self.Etat" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Stanowisko">
+        <PropertyRef Name="ID_stanowisko" />
+      </Principal>
+      <Dependent Role="Etat">
+        <PropertyRef Name="ID_stanowisko" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Kategoria__ID_dz__267ABA7A">
+    <End Role="Dzial" Type="Self.Dzial" Multiplicity="1" />
+    <End Role="Kategoria" Type="Self.Kategoria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dzial">
+        <PropertyRef Name="ID_dzial" />
+      </Principal>
+      <Dependent Role="Kategoria">
+        <PropertyRef Name="ID_dzial" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Klient__ID_statu__3B40CD36">
+    <End Role="Status_klient" Type="Self.Status_klient" Multiplicity="1" />
+    <End Role="Klient" Type="Self.Klient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status_klient">
+        <PropertyRef Name="ID_status_klient" />
+      </Principal>
+      <Dependent Role="Klient">
+        <PropertyRef Name="ID_status_klient" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Miejsce_m__ID_po__49C3F6B7">
+    <End Role="Poziom_magazynowanie" Type="Self.Poziom_magazynowanie" Multiplicity="1" />
+    <End Role="Miejsce_magazynowania" Type="Self.Miejsce_magazynowania" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Poziom_magazynowanie">
+        <PropertyRef Name="ID_poziom_magazynowanie" />
+      </Principal>
+      <Dependent Role="Miejsce_magazynowania">
+        <PropertyRef Name="ID_poziom_magazynowanie" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Miejsce_m__ID_pr__47DBAE45">
+    <End Role="Produkt" Type="Self.Produkt" Multiplicity="1" />
+    <End Role="Miejsce_magazynowania" Type="Self.Miejsce_magazynowania" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Produkt">
+        <PropertyRef Name="ID_produkt" />
+      </Principal>
+      <Dependent Role="Miejsce_magazynowania">
+        <PropertyRef Name="ID_produkt" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Miejsce_m__ID_ty__48CFD27E">
+    <End Role="Typ_magazynowania" Type="Self.Typ_magazynowania" Multiplicity="1" />
+    <End Role="Miejsce_magazynowania" Type="Self.Miejsce_magazynowania" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Typ_magazynowania">
+        <PropertyRef Name="ID_typ_magazynowania" />
+      </Principal>
+      <Dependent Role="Miejsce_magazynowania">
+        <PropertyRef Name="ID_typ_magazynowania" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Nadgodzin__ID_pr__7E37BEF6">
+    <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="1" />
+    <End Role="Nadgodziny" Type="Self.Nadgodziny" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownik">
+        <PropertyRef Name="ID_pracownik" />
+      </Principal>
+      <Dependent Role="Nadgodziny">
+        <PropertyRef Name="ID_pracownik" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Nadgodzin__ID_ro__7F2BE32F">
+    <End Role="Rodzaj_nadgodziny" Type="Self.Rodzaj_nadgodziny" Multiplicity="1" />
+    <End Role="Nadgodziny" Type="Self.Nadgodziny" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rodzaj_nadgodziny">
+        <PropertyRef Name="ID_rodzaj_nadgodziny" />
+      </Principal>
+      <Dependent Role="Nadgodziny">
+        <PropertyRef Name="ID_rodzaj_nadgodziny" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Nieobecno__ID_pr__70DDC3D8">
+    <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="0..1" />
+    <End Role="Nieobecnosc" Type="Self.Nieobecnosc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownik">
+        <PropertyRef Name="ID_pracownik" />
+      </Principal>
+      <Dependent Role="Nieobecnosc">
+        <PropertyRef Name="ID_pracownik" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Nieobecno__ID_ro__71D1E811">
+    <End Role="Rodzaj_nieobecnosci" Type="Self.Rodzaj_nieobecnosci" Multiplicity="0..1" />
+    <End Role="Nieobecnosc" Type="Self.Nieobecnosc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rodzaj_nieobecnosci">
+        <PropertyRef Name="ID_rodzaj_nieobecnosci" />
+      </Principal>
+      <Dependent Role="Nieobecnosc">
+        <PropertyRef Name="ID_rodzaj_nieobecnosci" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Nr_telefo__ID_pr__5CD6CB2B">
+    <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="1" />
+    <End Role="Nr_telefon_pracownik" Type="Self.Nr_telefon_pracownik" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownik">
+        <PropertyRef Name="ID_pracownik" />
+      </Principal>
+      <Dependent Role="Nr_telefon_pracownik">
+        <PropertyRef Name="ID_pracownik" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Oferta_ha__ID_of__4B7734FF">
+    <End Role="Oferta_handlowa" Type="Self.Oferta_handlowa" Multiplicity="1" />
+    <End Role="Oferta_handlowa_szczegol" Type="Self.Oferta_handlowa_szczegol" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Oferta_handlowa">
+        <PropertyRef Name="ID_oferta_handlowa" />
+      </Principal>
+      <Dependent Role="Oferta_handlowa_szczegol">
+        <PropertyRef Name="ID_oferta_handlowa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Oferta_ha__ID_po__4D5F7D71">
+    <End Role="Podatek" Type="Self.Podatek" Multiplicity="1" />
+    <End Role="Oferta_handlowa_szczegol" Type="Self.Oferta_handlowa_szczegol" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Podatek">
+        <PropertyRef Name="ID_podatek" />
+      </Principal>
+      <Dependent Role="Oferta_handlowa_szczegol">
+        <PropertyRef Name="ID_podatek" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Oferta_ha__ID_pr__47A6A41B">
+    <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="1" />
+    <End Role="Oferta_handlowa" Type="Self.Oferta_handlowa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownik">
+        <PropertyRef Name="ID_pracownik" />
+      </Principal>
+      <Dependent Role="Oferta_handlowa">
+        <PropertyRef Name="ID_pracownik" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Oferta_ha__ID_pr__4C6B5938">
+    <End Role="Produkt" Type="Self.Produkt" Multiplicity="1" />
+    <End Role="Oferta_handlowa_szczegol" Type="Self.Oferta_handlowa_szczegol" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Produkt">
+        <PropertyRef Name="ID_produkt" />
+      </Principal>
+      <Dependent Role="Oferta_handlowa_szczegol">
+        <PropertyRef Name="ID_produkt" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Oferta_ha__ID_st__489AC854">
+    <End Role="Status_oferta" Type="Self.Status_oferta" Multiplicity="1" />
+    <End Role="Oferta_handlowa" Type="Self.Oferta_handlowa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status_oferta">
+        <PropertyRef Name="ID_status_oferta" />
+      </Principal>
+      <Dependent Role="Oferta_handlowa">
+        <PropertyRef Name="ID_status_oferta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Parametr___ID_je__3F466844">
+    <End Role="Jednostka" Type="Self.Jednostka" Multiplicity="1" />
+    <End Role="Parametr_typ_magazynowania" Type="Self.Parametr_typ_magazynowania" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Jednostka">
+        <PropertyRef Name="ID_jednostka" />
+      </Principal>
+      <Dependent Role="Parametr_typ_magazynowania">
+        <PropertyRef Name="ID_jednostka" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Parametr___ID_je__44FF419A">
+    <End Role="Jednostka" Type="Self.Jednostka" Multiplicity="1" />
+    <End Role="Parametr_poziom_magazynowanie" Type="Self.Parametr_poziom_magazynowanie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Jednostka">
+        <PropertyRef Name="ID_jednostka" />
+      </Principal>
+      <Dependent Role="Parametr_poziom_magazynowanie">
+        <PropertyRef Name="ID_jednostka" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Parametr___ID_po__2DE6D218">
+    <End Role="Pojazd_transport" Type="Self.Pojazd_transport" Multiplicity="1" />
+    <End Role="Parametr_rodzaj_transport" Type="Self.Parametr_rodzaj_transport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pojazd_transport">
+        <PropertyRef Name="ID_pojazd_transport" />
+      </Principal>
+      <Dependent Role="Parametr_rodzaj_transport">
+        <PropertyRef Name="ID_pojazd_transport" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Parametr___ID_po__440B1D61">
+    <End Role="Poziom_magazynowanie" Type="Self.Poziom_magazynowanie" Multiplicity="1" />
+    <End Role="Parametr_poziom_magazynowanie" Type="Self.Parametr_poziom_magazynowanie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Poziom_magazynowanie">
+        <PropertyRef Name="ID_poziom_magazynowanie" />
+      </Principal>
+      <Dependent Role="Parametr_poziom_magazynowanie">
+        <PropertyRef Name="ID_poziom_magazynowanie" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Parametr___ID_ty__2EDAF651">
+    <End Role="Typ_parametr_pojazd_transport" Type="Self.Typ_parametr_pojazd_transport" Multiplicity="1" />
+    <End Role="Parametr_rodzaj_transport" Type="Self.Parametr_rodzaj_transport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Typ_parametr_pojazd_transport">
+        <PropertyRef Name="ID_typ_parametr_pojazd_transport" />
+      </Principal>
+      <Dependent Role="Parametr_rodzaj_transport">
+        <PropertyRef Name="ID_typ_parametr_pojazd_transport" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Parametr___ID_ty__3E52440B">
+    <End Role="Typ_magazynowania" Type="Self.Typ_magazynowania" Multiplicity="1" />
+    <End Role="Parametr_typ_magazynowania" Type="Self.Parametr_typ_magazynowania" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Typ_magazynowania">
+        <PropertyRef Name="ID_typ_magazynowania" />
+      </Principal>
+      <Dependent Role="Parametr_typ_magazynowania">
+        <PropertyRef Name="ID_typ_magazynowania" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Podkatego__ID_Ka__29572725">
+    <End Role="Kategoria" Type="Self.Kategoria" Multiplicity="1" />
+    <End Role="Podkategoria" Type="Self.Podkategoria" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kategoria">
+        <PropertyRef Name="ID_kategoria" />
+      </Principal>
+      <Dependent Role="Podkategoria">
+        <PropertyRef Name="ID_Kategoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Pojazd_tr__ID_ro__2645B050">
+    <End Role="Rodzaj_pojazd_transport" Type="Self.Rodzaj_pojazd_transport" Multiplicity="1" />
+    <End Role="Pojazd_transport" Type="Self.Pojazd_transport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rodzaj_pojazd_transport">
+        <PropertyRef Name="ID_rodzaj_pojazd_transport" />
+      </Principal>
+      <Dependent Role="Pojazd_transport">
+        <PropertyRef Name="ID_rodzaj_pojazd_transport" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Pojazd_tr__ID_st__2739D489">
+    <End Role="Stan_techniczny_pojazd_transport" Type="Self.Stan_techniczny_pojazd_transport" Multiplicity="1" />
+    <End Role="Pojazd_transport" Type="Self.Pojazd_transport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Stan_techniczny_pojazd_transport">
+        <PropertyRef Name="ID_stan_techniczny_pojazd_transport" />
+      </Principal>
+      <Dependent Role="Pojazd_transport">
+        <PropertyRef Name="ID_stan_techniczny_pojazd_transport" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Pojazd_tr__ID_ty__25518C17">
+    <End Role="Typ_pojazd_transport" Type="Self.Typ_pojazd_transport" Multiplicity="1" />
+    <End Role="Pojazd_transport" Type="Self.Pojazd_transport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Typ_pojazd_transport">
+        <PropertyRef Name="ID_typ_pojazd_transport" />
+      </Principal>
+      <Dependent Role="Pojazd_transport">
+        <PropertyRef Name="ID_typ_pojad_transport" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Pojazd_tr__ID_ty__282DF8C2">
+    <End Role="Typ_paliwa" Type="Self.Typ_paliwa" Multiplicity="1" />
+    <End Role="Pojazd_transport" Type="Self.Pojazd_transport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Typ_paliwa">
+        <PropertyRef Name="ID_typ_paliwa" />
+      </Principal>
+      <Dependent Role="Pojazd_transport">
+        <PropertyRef Name="ID_typ_paliwa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Posada_pr__ID_et__6A30C649">
+    <End Role="Etat" Type="Self.Etat" Multiplicity="0..1" />
+    <End Role="Posada_pracownika" Type="Self.Posada_pracownika" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Etat">
+        <PropertyRef Name="ID_etat" />
+      </Principal>
+      <Dependent Role="Posada_pracownika">
+        <PropertyRef Name="ID_etat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Pracownik__ID_wy__571DF1D5">
+    <End Role="Wyksztalcenie" Type="Self.Wyksztalcenie" Multiplicity="1" />
+    <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Wyksztalcenie">
+        <PropertyRef Name="ID_wyksztalcenie" />
+      </Principal>
+      <Dependent Role="Pracownik">
+        <PropertyRef Name="ID_wyksztalcenie" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Produkt__ID_gwar__398D8EEE">
+    <End Role="Gwarancja" Type="Self.Gwarancja" Multiplicity="1" />
+    <End Role="Produkt" Type="Self.Produkt" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gwarancja">
+        <PropertyRef Name="ID_gwarancja" />
+      </Principal>
+      <Dependent Role="Produkt">
+        <PropertyRef Name="ID_gwarancja" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Produkt__ID_prod__37A5467C">
+    <End Role="Producent" Type="Self.Producent" Multiplicity="1" />
+    <End Role="Produkt" Type="Self.Produkt" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Producent">
+        <PropertyRef Name="ID_producent" />
+      </Principal>
+      <Dependent Role="Produkt">
+        <PropertyRef Name="ID_producent" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Produkt__ID_typ___38996AB5">
+    <End Role="Typ_produkt" Type="Self.Typ_produkt" Multiplicity="1" />
+    <End Role="Produkt" Type="Self.Produkt" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Typ_produkt">
+        <PropertyRef Name="ID_typ_produkt" />
+      </Principal>
+      <Dependent Role="Produkt">
+        <PropertyRef Name="ID_typ_produkt" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Reklamacj__ID_pr__0C50D423">
+    <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="1" />
+    <End Role="Reklamacja_hurt" Type="Self.Reklamacja_hurt" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownik">
+        <PropertyRef Name="ID_pracownik" />
+      </Principal>
+      <Dependent Role="Reklamacja_hurt">
+        <PropertyRef Name="ID_pracownik" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Reklamacj__ID_pr__14E61A24">
+    <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="1" />
+    <End Role="Reklamacja_detal" Type="Self.Reklamacja_detal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownik">
+        <PropertyRef Name="ID_pracownik" />
+      </Principal>
+      <Dependent Role="Reklamacja_detal">
+        <PropertyRef Name="ID_pracownik" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Reklamacj__ID_sp__0D44F85C">
+    <End Role="Sprzedaz_hurt" Type="Self.Sprzedaz_hurt" Multiplicity="1" />
+    <End Role="Reklamacja_hurt" Type="Self.Reklamacja_hurt" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sprzedaz_hurt">
+        <PropertyRef Name="ID_sprzedaz_hurt" />
+      </Principal>
+      <Dependent Role="Reklamacja_hurt">
+        <PropertyRef Name="ID_sprzedaz_hurt" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Reklamacj__ID_sp__15DA3E5D">
+    <End Role="Sprzedaz_detal" Type="Self.Sprzedaz_detal" Multiplicity="1" />
+    <End Role="Reklamacja_detal" Type="Self.Reklamacja_detal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sprzedaz_detal">
+        <PropertyRef Name="ID_sprzedaz_detal" />
+      </Principal>
+      <Dependent Role="Reklamacja_detal">
+        <PropertyRef Name="ID_sprzedaz_detal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Rozladune__ID_do__31B762FC">
+    <End Role="Dostawa" Type="Self.Dostawa" Multiplicity="1" />
+    <End Role="Rozladunek" Type="Self.Rozladunek" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dostawa">
+        <PropertyRef Name="ID_dostawa" />
+      </Principal>
+      <Dependent Role="Rozladunek">
+        <PropertyRef Name="ID_dostawa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Rozladune__ID_po__32AB8735">
+    <End Role="Pojazd_transport" Type="Self.Pojazd_transport" Multiplicity="1" />
+    <End Role="Rozladunek" Type="Self.Rozladunek" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pojazd_transport">
+        <PropertyRef Name="ID_pojazd_transport" />
+      </Principal>
+      <Dependent Role="Rozladunek">
+        <PropertyRef Name="ID_pojazd_transport" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Rozladune__ID_pr__339FAB6E">
+    <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="1" />
+    <End Role="Rozladunek" Type="Self.Rozladunek" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownik">
+        <PropertyRef Name="ID_pracownik" />
+      </Principal>
+      <Dependent Role="Rozladunek">
+        <PropertyRef Name="ID_pracownik" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Slownik_a__ID_je__4CA06362">
+    <End Role="Jednostka" Type="Self.Jednostka" Multiplicity="1" />
+    <End Role="Slownik_atrybut" Type="Self.Slownik_atrybut" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Jednostka">
+        <PropertyRef Name="ID_jednostka" />
+      </Principal>
+      <Dependent Role="Slownik_atrybut">
+        <PropertyRef Name="ID_jednostka" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sprzedaz___ID_fo__5D95E53A">
+    <End Role="Forma_platnosc" Type="Self.Forma_platnosc" Multiplicity="1" />
+    <End Role="Sprzedaz_hurt" Type="Self.Sprzedaz_hurt" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Forma_platnosc">
+        <PropertyRef Name="ID_forma_platnosc" />
+      </Principal>
+      <Dependent Role="Sprzedaz_hurt">
+        <PropertyRef Name="ID_forma_platnosc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sprzedaz___ID_fo__662B2B3B">
+    <End Role="Forma_platnosc" Type="Self.Forma_platnosc" Multiplicity="1" />
+    <End Role="Sprzedaz_detal" Type="Self.Sprzedaz_detal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Forma_platnosc">
+        <PropertyRef Name="ID_forma_platnosc" />
+      </Principal>
+      <Dependent Role="Sprzedaz_detal">
+        <PropertyRef Name="ID_forma_platnosc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sprzedaz___ID_fo__719CDDE7">
+    <End Role="Forma_platnosc" Type="Self.Forma_platnosc" Multiplicity="1" />
+    <End Role="Sprzedaz_usluga_hurt" Type="Self.Sprzedaz_usluga_hurt" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Forma_platnosc">
+        <PropertyRef Name="ID_forma_platnosc" />
+      </Principal>
+      <Dependent Role="Sprzedaz_usluga_hurt">
+        <PropertyRef Name="ID_forma_platnosc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sprzedaz___ID_fo__7A3223E8">
+    <End Role="Forma_platnosc" Type="Self.Forma_platnosc" Multiplicity="1" />
+    <End Role="Sprzedaz_usluga_detal" Type="Self.Sprzedaz_usluga_detal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Forma_platnosc">
+        <PropertyRef Name="ID_forma_platnosc" />
+      </Principal>
+      <Dependent Role="Sprzedaz_usluga_detal">
+        <PropertyRef Name="ID_forma_platnosc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sprzedaz___ID_je__634EBE90">
+    <End Role="Jednostka" Type="Self.Jednostka" Multiplicity="1" />
+    <End Role="Sprzedaz_szczegol_hurt" Type="Self.Sprzedaz_szczegol_hurt" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Jednostka">
+        <PropertyRef Name="ID_jednostka" />
+      </Principal>
+      <Dependent Role="Sprzedaz_szczegol_hurt">
+        <PropertyRef Name="ID_jednostka" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sprzedaz___ID_je__6BE40491">
+    <End Role="Jednostka" Type="Self.Jednostka" Multiplicity="1" />
+    <End Role="Sprzedaz_szczegol_detal" Type="Self.Sprzedaz_szczegol_detal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Jednostka">
+        <PropertyRef Name="ID_jednostka" />
+      </Principal>
+      <Dependent Role="Sprzedaz_szczegol_detal">
+        <PropertyRef Name="ID_jednostka" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sprzedaz___ID_po__6CD828CA">
+    <End Role="Podatek" Type="Self.Podatek" Multiplicity="1" />
+    <End Role="Sprzedaz_szczegol_detal" Type="Self.Sprzedaz_szczegol_detal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Podatek">
+        <PropertyRef Name="ID_podatek" />
+      </Principal>
+      <Dependent Role="Sprzedaz_szczegol_detal">
+        <PropertyRef Name="ID_podatek" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sprzedaz___ID_pr__625A9A57">
+    <End Role="Produkt" Type="Self.Produkt" Multiplicity="1" />
+    <End Role="Sprzedaz_szczegol_hurt" Type="Self.Sprzedaz_szczegol_hurt" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Produkt">
+        <PropertyRef Name="ID_produkt" />
+      </Principal>
+      <Dependent Role="Sprzedaz_szczegol_hurt">
+        <PropertyRef Name="ID_produkt" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sprzedaz___ID_pr__6AEFE058">
+    <End Role="Produkt" Type="Self.Produkt" Multiplicity="1" />
+    <End Role="Sprzedaz_szczegol_detal" Type="Self.Sprzedaz_szczegol_detal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Produkt">
+        <PropertyRef Name="ID_produkt" />
+      </Principal>
+      <Dependent Role="Sprzedaz_szczegol_detal">
+        <PropertyRef Name="ID_produkt" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sprzedaz___ID_pr__70A8B9AE">
+    <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="1" />
+    <End Role="Sprzedaz_usluga_hurt" Type="Self.Sprzedaz_usluga_hurt" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownik">
+        <PropertyRef Name="ID_pracownik" />
+      </Principal>
+      <Dependent Role="Sprzedaz_usluga_hurt">
+        <PropertyRef Name="ID_pracownik" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sprzedaz___ID_pr__793DFFAF">
+    <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="1" />
+    <End Role="Sprzedaz_usluga_detal" Type="Self.Sprzedaz_usluga_detal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownik">
+        <PropertyRef Name="ID_pracownik" />
+      </Principal>
+      <Dependent Role="Sprzedaz_usluga_detal">
+        <PropertyRef Name="ID_pracownik" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sprzedaz___ID_sp__6166761E">
+    <End Role="Sprzedaz_hurt" Type="Self.Sprzedaz_hurt" Multiplicity="1" />
+    <End Role="Sprzedaz_szczegol_hurt" Type="Self.Sprzedaz_szczegol_hurt" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sprzedaz_hurt">
+        <PropertyRef Name="ID_sprzedaz_hurt" />
+      </Principal>
+      <Dependent Role="Sprzedaz_szczegol_hurt">
+        <PropertyRef Name="ID_sprzedaz_hurt" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sprzedaz___ID_sp__69FBBC1F">
+    <End Role="Sprzedaz_detal" Type="Self.Sprzedaz_detal" Multiplicity="1" />
+    <End Role="Sprzedaz_szczegol_detal" Type="Self.Sprzedaz_szczegol_detal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sprzedaz_detal">
+        <PropertyRef Name="ID_sprzedaz_detal" />
+      </Principal>
+      <Dependent Role="Sprzedaz_szczegol_detal">
+        <PropertyRef Name="ID_sprzedaz_detal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sprzedaz___ID_sp__6FB49575">
+    <End Role="Sprzedaz_hurt" Type="Self.Sprzedaz_hurt" Multiplicity="1" />
+    <End Role="Sprzedaz_usluga_hurt" Type="Self.Sprzedaz_usluga_hurt" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sprzedaz_hurt">
+        <PropertyRef Name="ID_sprzedaz_hurt" />
+      </Principal>
+      <Dependent Role="Sprzedaz_usluga_hurt">
+        <PropertyRef Name="ID_sprzedaz_hurt" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sprzedaz___ID_sp__7849DB76">
+    <End Role="Sprzedaz_detal" Type="Self.Sprzedaz_detal" Multiplicity="1" />
+    <End Role="Sprzedaz_usluga_detal" Type="Self.Sprzedaz_usluga_detal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sprzedaz_detal">
+        <PropertyRef Name="ID_sprzedaz_detal" />
+      </Principal>
+      <Dependent Role="Sprzedaz_usluga_detal">
+        <PropertyRef Name="ID_sprzedaz_detal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sprzedaz___ID_Ty__5E8A0973">
+    <End Role="Typ_odbioru" Type="Self.Typ_odbioru" Multiplicity="1" />
+    <End Role="Sprzedaz_hurt" Type="Self.Sprzedaz_hurt" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Typ_odbioru">
+        <PropertyRef Name="ID_typ_odbioru" />
+      </Principal>
+      <Dependent Role="Sprzedaz_hurt">
+        <PropertyRef Name="ID_Typ_odbioru" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sprzedaz___ID_Ty__671F4F74">
+    <End Role="Typ_odbioru" Type="Self.Typ_odbioru" Multiplicity="1" />
+    <End Role="Sprzedaz_detal" Type="Self.Sprzedaz_detal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Typ_odbioru">
+        <PropertyRef Name="ID_typ_odbioru" />
+      </Principal>
+      <Dependent Role="Sprzedaz_detal">
+        <PropertyRef Name="ID_Typ_odbioru" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sprzedaz___ID_za__5CA1C101">
+    <End Role="Zamowienie" Type="Self.Zamowienie" Multiplicity="1" />
+    <End Role="Sprzedaz_hurt" Type="Self.Sprzedaz_hurt" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Zamowienie">
+        <PropertyRef Name="ID_zamowienie" />
+      </Principal>
+      <Dependent Role="Sprzedaz_hurt">
+        <PropertyRef Name="ID_zamowienie" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Stan_real__ID_do__18EBB532">
+    <End Role="Dostawa" Type="Self.Dostawa" Multiplicity="1" />
+    <End Role="Stan_realizacji_dostawa" Type="Self.Stan_realizacji_dostawa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dostawa">
+        <PropertyRef Name="ID_dostawa" />
+      </Principal>
+      <Dependent Role="Stan_realizacji_dostawa">
+        <PropertyRef Name="ID_dostawa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Stan_real__ID_pr__1AD3FDA4">
+    <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="1" />
+    <End Role="Stan_realizacji_dostawa" Type="Self.Stan_realizacji_dostawa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownik">
+        <PropertyRef Name="ID_pracownik" />
+      </Principal>
+      <Dependent Role="Stan_realizacji_dostawa">
+        <PropertyRef Name="ID_pracownik" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Stan_real__ID_st__19DFD96B">
+    <End Role="Status_dostawa" Type="Self.Status_dostawa" Multiplicity="1" />
+    <End Role="Stan_realizacji_dostawa" Type="Self.Stan_realizacji_dostawa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status_dostawa">
+        <PropertyRef Name="ID_status_dostawa" />
+      </Principal>
+      <Dependent Role="Stan_realizacji_dostawa">
+        <PropertyRef Name="ID_status_dostawa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Stanowisk__ID_dz__6477ECF3">
+    <End Role="Dzial_pracownik" Type="Self.Dzial_pracownik" Multiplicity="1" />
+    <End Role="Stanowisko" Type="Self.Stanowisko" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dzial_pracownik">
+        <PropertyRef Name="ID_dzial_pracownik" />
+      </Principal>
+      <Dependent Role="Stanowisko">
+        <PropertyRef Name="ID_dzial_pracownik" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Status_kl__ID_ra__3864608B">
+    <End Role="Rabat" Type="Self.Rabat" Multiplicity="0..1" />
+    <End Role="Status_klient" Type="Self.Status_klient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rabat">
+        <PropertyRef Name="ID_rabat" />
+      </Principal>
+      <Dependent Role="Status_klient">
+        <PropertyRef Name="ID_rabat" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Szczegol___ID_pr__1209AD79">
+    <End Role="Produkt" Type="Self.Produkt" Multiplicity="1" />
+    <End Role="Szczegol_reklamacja_hurt" Type="Self.Szczegol_reklamacja_hurt" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Produkt">
+        <PropertyRef Name="ID_produkt" />
+      </Principal>
+      <Dependent Role="Szczegol_reklamacja_hurt">
+        <PropertyRef Name="ID_produkt" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Szczegol___ID_pr__1A9EF37A">
+    <End Role="Produkt" Type="Self.Produkt" Multiplicity="1" />
+    <End Role="Szczegol_reklamacja_detal" Type="Self.Szczegol_reklamacja_detal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Produkt">
+        <PropertyRef Name="ID_produkt" />
+      </Principal>
+      <Dependent Role="Szczegol_reklamacja_detal">
+        <PropertyRef Name="ID_produkt" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Szczegol___ID_re__10216507">
+    <End Role="Reklamacja_hurt" Type="Self.Reklamacja_hurt" Multiplicity="1" />
+    <End Role="Szczegol_reklamacja_hurt" Type="Self.Szczegol_reklamacja_hurt" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Reklamacja_hurt">
+        <PropertyRef Name="ID_reklamacja_hurt" />
+      </Principal>
+      <Dependent Role="Szczegol_reklamacja_hurt">
+        <PropertyRef Name="ID_reklamacja_hurt" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Szczegol___ID_re__18B6AB08">
+    <End Role="Reklamacja_detal" Type="Self.Reklamacja_detal" Multiplicity="1" />
+    <End Role="Szczegol_reklamacja_detal" Type="Self.Szczegol_reklamacja_detal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Reklamacja_detal">
+        <PropertyRef Name="ID_reklamacja_detal" />
+      </Principal>
+      <Dependent Role="Szczegol_reklamacja_detal">
+        <PropertyRef Name="ID_reklamacja_detal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Szczegol___ID_sp__74794A92">
+    <End Role="Sprzedaz_usluga_hurt" Type="Self.Sprzedaz_usluga_hurt" Multiplicity="1" />
+    <End Role="Szczegol_sprzedaz_usluga_hurt" Type="Self.Szczegol_sprzedaz_usluga_hurt" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sprzedaz_usluga_hurt">
+        <PropertyRef Name="ID_sprzedaz_usluga_hurt" />
+      </Principal>
+      <Dependent Role="Szczegol_sprzedaz_usluga_hurt">
+        <PropertyRef Name="ID_sprzedaz_usuluga_hurt" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Szczegol___ID_sp__7D0E9093">
+    <End Role="Sprzedaz_usluga_detal" Type="Self.Sprzedaz_usluga_detal" Multiplicity="1" />
+    <End Role="Szczegol_sprzedaz_usluga_detal" Type="Self.Szczegol_sprzedaz_usluga_detal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sprzedaz_usluga_detal">
+        <PropertyRef Name="ID_sprzedaz_usluga_detal" />
+      </Principal>
+      <Dependent Role="Szczegol_sprzedaz_usluga_detal">
+        <PropertyRef Name="ID_sprzedaz_usuluga_detal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Szczegol___ID_ty__11158940">
+    <End Role="Typ_reklamacja" Type="Self.Typ_reklamacja" Multiplicity="1" />
+    <End Role="Szczegol_reklamacja_hurt" Type="Self.Szczegol_reklamacja_hurt" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Typ_reklamacja">
+        <PropertyRef Name="ID_typ_reklamacja" />
+      </Principal>
+      <Dependent Role="Szczegol_reklamacja_hurt">
+        <PropertyRef Name="ID_typ_reklamacja" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Szczegol___ID_ty__19AACF41">
+    <End Role="Typ_reklamacja" Type="Self.Typ_reklamacja" Multiplicity="1" />
+    <End Role="Szczegol_reklamacja_detal" Type="Self.Szczegol_reklamacja_detal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Typ_reklamacja">
+        <PropertyRef Name="ID_typ_reklamacja" />
+      </Principal>
+      <Dependent Role="Szczegol_reklamacja_detal">
+        <PropertyRef Name="ID_typ_reklamacja" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Szczegol___ID_us__756D6ECB">
+    <End Role="Usluga" Type="Self.Usluga" Multiplicity="1" />
+    <End Role="Szczegol_sprzedaz_usluga_hurt" Type="Self.Szczegol_sprzedaz_usluga_hurt" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usluga">
+        <PropertyRef Name="ID_usluga" />
+      </Principal>
+      <Dependent Role="Szczegol_sprzedaz_usluga_hurt">
+        <PropertyRef Name="ID_usluga" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Szczegol___ID_us__7E02B4CC">
+    <End Role="Usluga" Type="Self.Usluga" Multiplicity="1" />
+    <End Role="Szczegol_sprzedaz_usluga_detal" Type="Self.Szczegol_sprzedaz_usluga_detal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usluga">
+        <PropertyRef Name="ID_usluga" />
+      </Principal>
+      <Dependent Role="Szczegol_sprzedaz_usluga_detal">
+        <PropertyRef Name="ID_usluga" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Szkolenie__ID_pr__0A9D95DB">
+    <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="1" />
+    <End Role="Szkolenie_pracownik" Type="Self.Szkolenie_pracownik" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownik">
+        <PropertyRef Name="ID_pracownik" />
+      </Principal>
+      <Dependent Role="Szkolenie_pracownik">
+        <PropertyRef Name="ID_pracownik" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Szkolenie__ID_ty__09A971A2">
+    <End Role="Typ_szkolenie" Type="Self.Typ_szkolenie" Multiplicity="1" />
+    <End Role="Szkolenie_pracownik" Type="Self.Szkolenie_pracownik" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Typ_szkolenie">
+        <PropertyRef Name="ID_typ_szkolenie" />
+      </Principal>
+      <Dependent Role="Szkolenie_pracownik">
+        <PropertyRef Name="ID_typ_szkolenie" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Typ_param__ID_je__2B0A656D">
+    <End Role="Jednostka" Type="Self.Jednostka" Multiplicity="1" />
+    <End Role="Typ_parametr_pojazd_transport" Type="Self.Typ_parametr_pojazd_transport" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Jednostka">
+        <PropertyRef Name="ID_jednostka" />
+      </Principal>
+      <Dependent Role="Typ_parametr_pojazd_transport">
+        <PropertyRef Name="ID_jednostka" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Typ_produ__ID_po__2C3393D0">
+    <End Role="Podkategoria" Type="Self.Podkategoria" Multiplicity="1" />
+    <End Role="Typ_produkt" Type="Self.Typ_produkt" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Podkategoria">
+        <PropertyRef Name="ID_podkategoria" />
+      </Principal>
+      <Dependent Role="Typ_produkt">
+        <PropertyRef Name="ID_podkategoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Umowa__ID_posada__797309D9">
+    <End Role="Posada_pracownika" Type="Self.Posada_pracownika" Multiplicity="0..1" />
+    <End Role="Umowa" Type="Self.Umowa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Posada_pracownika">
+        <PropertyRef Name="ID_posada_pracownika" />
+      </Principal>
+      <Dependent Role="Umowa">
+        <PropertyRef Name="ID_posada_pracownika" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Umowa__ID_pracow__787EE5A0">
+    <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="0..1" />
+    <End Role="Umowa" Type="Self.Umowa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownik">
+        <PropertyRef Name="ID_pracownik" />
+      </Principal>
+      <Dependent Role="Umowa">
+        <PropertyRef Name="ID_pracownik" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Umowa__ID_rodzaj__778AC167">
+    <End Role="Rodzaj_umowy" Type="Self.Rodzaj_umowy" Multiplicity="0..1" />
+    <End Role="Umowa" Type="Self.Umowa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rodzaj_umowy">
+        <PropertyRef Name="ID_rodzaj_umowy" />
+      </Principal>
+      <Dependent Role="Umowa">
+        <PropertyRef Name="ID_rodzaj_umowy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Umowa__ID_wymiar__76969D2E">
+    <End Role="Wymiar_pracy" Type="Self.Wymiar_pracy" Multiplicity="0..1" />
+    <End Role="Umowa" Type="Self.Umowa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Wymiar_pracy">
+        <PropertyRef Name="ID_wymiar_pracy" />
+      </Principal>
+      <Dependent Role="Umowa">
+        <PropertyRef Name="ID_wymiar_pracy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Umowa_spr__ID_of__503BEA1C">
+    <End Role="Oferta_handlowa" Type="Self.Oferta_handlowa" Multiplicity="1" />
+    <End Role="Umowa_sprzedaz_hurt" Type="Self.Umowa_sprzedaz_hurt" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Oferta_handlowa">
+        <PropertyRef Name="ID_oferta_handlowa" />
+      </Principal>
+      <Dependent Role="Umowa_sprzedaz_hurt">
+        <PropertyRef Name="ID_oferta_handlowa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Utylizacj__ID_pr__1F63A897">
+    <End Role="Produkt" Type="Self.Produkt" Multiplicity="1" />
+    <End Role="Utylizacja" Type="Self.Utylizacja" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Produkt">
+        <PropertyRef Name="ID_produkt" />
+      </Principal>
+      <Dependent Role="Utylizacja">
+        <PropertyRef Name="ID_produkt" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Utylizacj__ID_ty__2057CCD0">
+    <End Role="Typ_utylizacja" Type="Self.Typ_utylizacja" Multiplicity="0..1" />
+    <End Role="Utylizacja" Type="Self.Utylizacja" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Typ_utylizacja">
+        <PropertyRef Name="ID_typ_utylizacja" />
+      </Principal>
+      <Dependent Role="Utylizacja">
+        <PropertyRef Name="ID_typ_utylizacja" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Wyplata__ID_Prac__04E4BC85">
+    <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="1" />
+    <End Role="Wyplata" Type="Self.Wyplata" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownik">
+        <PropertyRef Name="ID_pracownik" />
+      </Principal>
+      <Dependent Role="Wyplata">
+        <PropertyRef Name="ID_Pracownik" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Wysylka_d__ID_po__0697FACD">
+    <End Role="Pojazd_transport" Type="Self.Pojazd_transport" Multiplicity="1" />
+    <End Role="Wysylka_detal" Type="Self.Wysylka_detal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pojazd_transport">
+        <PropertyRef Name="ID_pojazd_transport" />
+      </Principal>
+      <Dependent Role="Wysylka_detal">
+        <PropertyRef Name="ID_pojazd_transport" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Wysylka_d__ID_pr__078C1F06">
+    <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="1" />
+    <End Role="Wysylka_detal" Type="Self.Wysylka_detal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownik">
+        <PropertyRef Name="ID_pracownik" />
+      </Principal>
+      <Dependent Role="Wysylka_detal">
+        <PropertyRef Name="ID_pracownik" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Wysylka_d__ID_sp__05A3D694">
+    <End Role="Sprzedaz_usluga_detal" Type="Self.Sprzedaz_usluga_detal" Multiplicity="1" />
+    <End Role="Wysylka_detal" Type="Self.Wysylka_detal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sprzedaz_usluga_detal">
+        <PropertyRef Name="ID_sprzedaz_usluga_detal" />
+      </Principal>
+      <Dependent Role="Wysylka_detal">
+        <PropertyRef Name="ID_sprzedaz_usluga_detal" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Wysylka_h__ID_po__01D345B0">
+    <End Role="Pojazd_transport" Type="Self.Pojazd_transport" Multiplicity="1" />
+    <End Role="Wysylka_hurt" Type="Self.Wysylka_hurt" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pojazd_transport">
+        <PropertyRef Name="ID_pojazd_transport" />
+      </Principal>
+      <Dependent Role="Wysylka_hurt">
+        <PropertyRef Name="ID_pojazd_transport" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Wysylka_h__ID_pr__02C769E9">
+    <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="1" />
+    <End Role="Wysylka_hurt" Type="Self.Wysylka_hurt" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownik">
+        <PropertyRef Name="ID_pracownik" />
+      </Principal>
+      <Dependent Role="Wysylka_hurt">
+        <PropertyRef Name="ID_pracownik" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Wysylka_h__ID_sp__00DF2177">
+    <End Role="Sprzedaz_usluga_hurt" Type="Self.Sprzedaz_usluga_hurt" Multiplicity="1" />
+    <End Role="Wysylka_hurt" Type="Self.Wysylka_hurt" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sprzedaz_usluga_hurt">
+        <PropertyRef Name="ID_sprzedaz_usluga_hurt" />
+      </Principal>
+      <Dependent Role="Wysylka_hurt">
+        <PropertyRef Name="ID_sprzedaz_usluga_hurt" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Zamowieni__ID_kl__540C7B00">
+    <End Role="Klient" Type="Self.Klient" Multiplicity="1" />
+    <End Role="Zamowienie" Type="Self.Zamowienie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Klient">
+        <PropertyRef Name="ID_klient" />
+      </Principal>
+      <Dependent Role="Zamowienie">
+        <PropertyRef Name="ID_klient" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Zamowieni__ID_pr__55009F39">
+    <End Role="Pracownik" Type="Self.Pracownik" Multiplicity="1" />
+    <End Role="Zamowienie" Type="Self.Zamowienie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pracownik">
+        <PropertyRef Name="ID_pracownik" />
+      </Principal>
+      <Dependent Role="Zamowienie">
+        <PropertyRef Name="ID_pracownik" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Zamowieni__ID_pr__59C55456">
+    <End Role="Produkt" Type="Self.Produkt" Multiplicity="1" />
+    <End Role="Zamowienie_szczegol" Type="Self.Zamowienie_szczegol" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Produkt">
+        <PropertyRef Name="ID_produkt" />
+      </Principal>
+      <Dependent Role="Zamowienie_szczegol">
+        <PropertyRef Name="ID_produkt" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Zamowieni__ID_st__55F4C372">
+    <End Role="Stan_realizacji" Type="Self.Stan_realizacji" Multiplicity="0..1" />
+    <End Role="Zamowienie" Type="Self.Zamowienie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Stan_realizacji">
+        <PropertyRef Name="ID_stan_realizacji" />
+      </Principal>
+      <Dependent Role="Zamowienie">
+        <PropertyRef Name="ID_stan_realizaji" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Zamowieni__ID_um__531856C7">
+    <End Role="Umowa_sprzedaz_hurt" Type="Self.Umowa_sprzedaz_hurt" Multiplicity="1" />
+    <End Role="Zamowienie" Type="Self.Zamowienie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Umowa_sprzedaz_hurt">
+        <PropertyRef Name="ID_umowa_sprzedaz_hurt" />
+      </Principal>
+      <Dependent Role="Zamowienie">
+        <PropertyRef Name="ID_umowa_sprzedaz_hurt" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Zamowieni__ID_za__58D1301D">
+    <End Role="Zamowienie" Type="Self.Zamowienie" Multiplicity="1" />
+    <End Role="Zamowienie_szczegol" Type="Self.Zamowienie_szczegol" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Zamowienie">
+        <PropertyRef Name="ID_zamowienie" />
+      </Principal>
+      <Dependent Role="Zamowienie_szczegol">
+        <PropertyRef Name="ID_zamowienie" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MGRModelStoreContainer">
+    <EntitySet Name="Alert" EntityType="Self.Alert" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Atrybut" EntityType="Self.Atrybut" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Czas_pracy" EntityType="Self.Czas_pracy" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Dane_adresowe_pracownik" EntityType="Self.Dane_adresowe_pracownik" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Dostawa" EntityType="Self.Dostawa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Dostawa_szczegol" EntityType="Self.Dostawa_szczegol" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Dostawca" EntityType="Self.Dostawca" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Dzial" EntityType="Self.Dzial" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Dzial_pracownik" EntityType="Self.Dzial_pracownik" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Email_pracownik" EntityType="Self.Email_pracownik" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Etat" EntityType="Self.Etat" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Forma_platnosc" EntityType="Self.Forma_platnosc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Gwarancja" EntityType="Self.Gwarancja" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Jednostka" EntityType="Self.Jednostka" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Kategoria" EntityType="Self.Kategoria" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Klient" EntityType="Self.Klient" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Miejsce_magazynowania" EntityType="Self.Miejsce_magazynowania" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Nadgodziny" EntityType="Self.Nadgodziny" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Nieobecnosc" EntityType="Self.Nieobecnosc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Nr_telefon_pracownik" EntityType="Self.Nr_telefon_pracownik" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Oferta_handlowa" EntityType="Self.Oferta_handlowa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Oferta_handlowa_szczegol" EntityType="Self.Oferta_handlowa_szczegol" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Parametr_poziom_magazynowanie" EntityType="Self.Parametr_poziom_magazynowanie" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Parametr_rodzaj_transport" EntityType="Self.Parametr_rodzaj_transport" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Parametr_typ_magazynowania" EntityType="Self.Parametr_typ_magazynowania" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Podatek" EntityType="Self.Podatek" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Podkategoria" EntityType="Self.Podkategoria" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pojazd_transport" EntityType="Self.Pojazd_transport" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Posada_pracownika" EntityType="Self.Posada_pracownika" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Poziom_magazynowanie" EntityType="Self.Poziom_magazynowanie" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pracownik" EntityType="Self.Pracownik" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Producent" EntityType="Self.Producent" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Produkt" EntityType="Self.Produkt" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Rabat" EntityType="Self.Rabat" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Reklamacja_detal" EntityType="Self.Reklamacja_detal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Reklamacja_hurt" EntityType="Self.Reklamacja_hurt" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Rodzaj_nadgodziny" EntityType="Self.Rodzaj_nadgodziny" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Rodzaj_nieobecnosci" EntityType="Self.Rodzaj_nieobecnosci" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Rodzaj_pojazd_transport" EntityType="Self.Rodzaj_pojazd_transport" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Rodzaj_umowy" EntityType="Self.Rodzaj_umowy" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Rozladunek" EntityType="Self.Rozladunek" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Slownik_atrybut" EntityType="Self.Slownik_atrybut" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sprzedaz_detal" EntityType="Self.Sprzedaz_detal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sprzedaz_hurt" EntityType="Self.Sprzedaz_hurt" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sprzedaz_szczegol_detal" EntityType="Self.Sprzedaz_szczegol_detal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sprzedaz_szczegol_hurt" EntityType="Self.Sprzedaz_szczegol_hurt" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sprzedaz_usluga_detal" EntityType="Self.Sprzedaz_usluga_detal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sprzedaz_usluga_hurt" EntityType="Self.Sprzedaz_usluga_hurt" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Stan_realizacji" EntityType="Self.Stan_realizacji" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Stan_realizacji_dostawa" EntityType="Self.Stan_realizacji_dostawa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Stan_techniczny_pojazd_transport" EntityType="Self.Stan_techniczny_pojazd_transport" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Stanowisko" EntityType="Self.Stanowisko" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Status_dostawa" EntityType="Self.Status_dostawa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Status_klient" EntityType="Self.Status_klient" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Status_oferta" EntityType="Self.Status_oferta" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Szczegol_reklamacja_detal" EntityType="Self.Szczegol_reklamacja_detal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Szczegol_reklamacja_hurt" EntityType="Self.Szczegol_reklamacja_hurt" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Szczegol_sprzedaz_usluga_detal" EntityType="Self.Szczegol_sprzedaz_usluga_detal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Szczegol_sprzedaz_usluga_hurt" EntityType="Self.Szczegol_sprzedaz_usluga_hurt" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Szkolenie_pracownik" EntityType="Self.Szkolenie_pracownik" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Typ_magazynowania" EntityType="Self.Typ_magazynowania" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Typ_odbioru" EntityType="Self.Typ_odbioru" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Typ_paliwa" EntityType="Self.Typ_paliwa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Typ_parametr_pojazd_transport" EntityType="Self.Typ_parametr_pojazd_transport" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Typ_pojazd_transport" EntityType="Self.Typ_pojazd_transport" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Typ_produkt" EntityType="Self.Typ_produkt" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Typ_reklamacja" EntityType="Self.Typ_reklamacja" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Typ_szkolenie" EntityType="Self.Typ_szkolenie" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Typ_utylizacja" EntityType="Self.Typ_utylizacja" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Umowa" EntityType="Self.Umowa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Umowa_sprzedaz_hurt" EntityType="Self.Umowa_sprzedaz_hurt" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usluga" EntityType="Self.Usluga" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Utylizacja" EntityType="Self.Utylizacja" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Wyksztalcenie" EntityType="Self.Wyksztalcenie" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Wymiar_pracy" EntityType="Self.Wymiar_pracy" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Wyplata" EntityType="Self.Wyplata" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Wysylka_detal" EntityType="Self.Wysylka_detal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Wysylka_hurt" EntityType="Self.Wysylka_hurt" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Zamowienie" EntityType="Self.Zamowienie" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Zamowienie_szczegol" EntityType="Self.Zamowienie_szczegol" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="v_Dzial_budowa" EntityType="Self.v_Dzial_budowa" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [v_Dzial_budowa].[Nazwa produktu] AS [Nazwa produktu], 
+    [v_Dzial_budowa].[Cena netto] AS [Cena netto], 
+    [v_Dzial_budowa].[Gwarancja (lata)] AS [Gwarancja (lata)], 
+    [v_Dzial_budowa].[Dział] AS [Dział]
+    FROM [dbo].[v_Dzial_budowa] AS [v_Dzial_budowa]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_Dzial_kuchnia" EntityType="Self.v_Dzial_kuchnia" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [v_Dzial_kuchnia].[Nazwa produktu] AS [Nazwa produktu], 
+    [v_Dzial_kuchnia].[Cena netto] AS [Cena netto], 
+    [v_Dzial_kuchnia].[Gwarancja (lata)] AS [Gwarancja (lata)], 
+    [v_Dzial_kuchnia].[Dział] AS [Dział]
+    FROM [dbo].[v_Dzial_kuchnia] AS [v_Dzial_kuchnia]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_Dzial_lazienka" EntityType="Self.v_Dzial_lazienka" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [v_Dzial_lazienka].[Nazwa produktu] AS [Nazwa produktu], 
+    [v_Dzial_lazienka].[Cena netto] AS [Cena netto], 
+    [v_Dzial_lazienka].[Gwarancja (lata)] AS [Gwarancja (lata)], 
+    [v_Dzial_lazienka].[Dział] AS [Dział]
+    FROM [dbo].[v_Dzial_lazienka] AS [v_Dzial_lazienka]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_Dzial_mieszkanie" EntityType="Self.v_Dzial_mieszkanie" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [v_Dzial_mieszkanie].[Nazwa produktu] AS [Nazwa produktu], 
+    [v_Dzial_mieszkanie].[Cena netto] AS [Cena netto], 
+    [v_Dzial_mieszkanie].[Gwarancja (lata)] AS [Gwarancja (lata)], 
+    [v_Dzial_mieszkanie].[Dział] AS [Dział]
+    FROM [dbo].[v_Dzial_mieszkanie] AS [v_Dzial_mieszkanie]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_Dzial_ogrod_wypoczynek" EntityType="Self.v_Dzial_ogrod_wypoczynek" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [v_Dzial_ogrod_wypoczynek].[Nazwa produktu] AS [Nazwa produktu], 
+    [v_Dzial_ogrod_wypoczynek].[Cena netto] AS [Cena netto], 
+    [v_Dzial_ogrod_wypoczynek].[Gwarancja (lata)] AS [Gwarancja (lata)], 
+    [v_Dzial_ogrod_wypoczynek].[Dział] AS [Dział]
+    FROM [dbo].[v_Dzial_ogrod_wypoczynek] AS [v_Dzial_ogrod_wypoczynek]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_Dzial_technika" EntityType="Self.v_Dzial_technika" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [v_Dzial_technika].[Nazwa produktu] AS [Nazwa produktu], 
+    [v_Dzial_technika].[Cena netto] AS [Cena netto], 
+    [v_Dzial_technika].[Gwarancja (lata)] AS [Gwarancja (lata)], 
+    [v_Dzial_technika].[Dział] AS [Dział]
+    FROM [dbo].[v_Dzial_technika] AS [v_Dzial_technika]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="v_Products" EntityType="Self.v_Products" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [v_Products].[Nazwa produktu] AS [Nazwa produktu], 
+    [v_Products].[Typ produktu] AS [Typ produktu], 
+    [v_Products].[Podkategoria] AS [Podkategoria], 
+    [v_Products].[Kategoria] AS [Kategoria], 
+    [v_Products].[Dzial] AS [Dzial], 
+    [v_Products].[Cena netto] AS [Cena netto], 
+    [v_Products].[Gwarancja (lata)] AS [Gwarancja (lata)]
+    FROM [dbo].[v_Products] AS [v_Products]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__Alert__ID_dzial__2F10007B" Association="Self.FK__Alert__ID_dzial__2F10007B">
+      <End Role="Dzial" EntitySet="Dzial" />
+      <End Role="Alert" EntitySet="Alert" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Atrybut__ID_prod__4F7CD00D" Association="Self.FK__Atrybut__ID_prod__4F7CD00D">
+      <End Role="Produkt" EntitySet="Produkt" />
+      <End Role="Atrybut" EntitySet="Atrybut" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Atrybut__ID_slow__5070F446" Association="Self.FK__Atrybut__ID_slow__5070F446">
+      <End Role="Slownik_atrybut" EntitySet="Slownik_atrybut" />
+      <End Role="Atrybut" EntitySet="Atrybut" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Czas_prac__ID_pr__02084FDA" Association="Self.FK__Czas_prac__ID_pr__02084FDA">
+      <End Role="Pracownik" EntitySet="Pracownik" />
+      <End Role="Czas_pracy" EntitySet="Czas_pracy" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Dane_adre__ID_pr__59FA5E80" Association="Self.FK__Dane_adre__ID_pr__59FA5E80">
+      <End Role="Pracownik" EntitySet="Pracownik" />
+      <End Role="Dane_adresowe_pracownik" EntitySet="Dane_adresowe_pracownik" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Dostawa__ID_dost__0F624AF8" Association="Self.FK__Dostawa__ID_dost__0F624AF8">
+      <End Role="Dostawca" EntitySet="Dostawca" />
+      <End Role="Dostawa" EntitySet="Dostawa" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Dostawa__ID_prac__10566F31" Association="Self.FK__Dostawa__ID_prac__10566F31">
+      <End Role="Pracownik" EntitySet="Pracownik" />
+      <End Role="Dostawa" EntitySet="Dostawa" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Dostawa_s__ID_do__1332DBDC" Association="Self.FK__Dostawa_s__ID_do__1332DBDC">
+      <End Role="Dostawa" EntitySet="Dostawa" />
+      <End Role="Dostawa_szczegol" EntitySet="Dostawa_szczegol" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Dostawa_s__ID_pr__14270015" Association="Self.FK__Dostawa_s__ID_pr__14270015">
+      <End Role="Produkt" EntitySet="Produkt" />
+      <End Role="Dostawa_szczegol" EntitySet="Dostawa_szczegol" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Email_pra__ID_pr__5FB337D6" Association="Self.FK__Email_pra__ID_pr__5FB337D6">
+      <End Role="Pracownik" EntitySet="Pracownik" />
+      <End Role="Email_pracownik" EntitySet="Email_pracownik" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Etat__ID_stanowi__6754599E" Association="Self.FK__Etat__ID_stanowi__6754599E">
+      <End Role="Stanowisko" EntitySet="Stanowisko" />
+      <End Role="Etat" EntitySet="Etat" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Kategoria__ID_dz__267ABA7A" Association="Self.FK__Kategoria__ID_dz__267ABA7A">
+      <End Role="Dzial" EntitySet="Dzial" />
+      <End Role="Kategoria" EntitySet="Kategoria" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Klient__ID_statu__3B40CD36" Association="Self.FK__Klient__ID_statu__3B40CD36">
+      <End Role="Status_klient" EntitySet="Status_klient" />
+      <End Role="Klient" EntitySet="Klient" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Miejsce_m__ID_po__49C3F6B7" Association="Self.FK__Miejsce_m__ID_po__49C3F6B7">
+      <End Role="Poziom_magazynowanie" EntitySet="Poziom_magazynowanie" />
+      <End Role="Miejsce_magazynowania" EntitySet="Miejsce_magazynowania" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Miejsce_m__ID_pr__47DBAE45" Association="Self.FK__Miejsce_m__ID_pr__47DBAE45">
+      <End Role="Produkt" EntitySet="Produkt" />
+      <End Role="Miejsce_magazynowania" EntitySet="Miejsce_magazynowania" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Miejsce_m__ID_ty__48CFD27E" Association="Self.FK__Miejsce_m__ID_ty__48CFD27E">
+      <End Role="Typ_magazynowania" EntitySet="Typ_magazynowania" />
+      <End Role="Miejsce_magazynowania" EntitySet="Miejsce_magazynowania" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Nadgodzin__ID_pr__7E37BEF6" Association="Self.FK__Nadgodzin__ID_pr__7E37BEF6">
+      <End Role="Pracownik" EntitySet="Pracownik" />
+      <End Role="Nadgodziny" EntitySet="Nadgodziny" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Nadgodzin__ID_ro__7F2BE32F" Association="Self.FK__Nadgodzin__ID_ro__7F2BE32F">
+      <End Role="Rodzaj_nadgodziny" EntitySet="Rodzaj_nadgodziny" />
+      <End Role="Nadgodziny" EntitySet="Nadgodziny" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Nieobecno__ID_pr__70DDC3D8" Association="Self.FK__Nieobecno__ID_pr__70DDC3D8">
+      <End Role="Pracownik" EntitySet="Pracownik" />
+      <End Role="Nieobecnosc" EntitySet="Nieobecnosc" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Nieobecno__ID_ro__71D1E811" Association="Self.FK__Nieobecno__ID_ro__71D1E811">
+      <End Role="Rodzaj_nieobecnosci" EntitySet="Rodzaj_nieobecnosci" />
+      <End Role="Nieobecnosc" EntitySet="Nieobecnosc" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Nr_telefo__ID_pr__5CD6CB2B" Association="Self.FK__Nr_telefo__ID_pr__5CD6CB2B">
+      <End Role="Pracownik" EntitySet="Pracownik" />
+      <End Role="Nr_telefon_pracownik" EntitySet="Nr_telefon_pracownik" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Oferta_ha__ID_of__4B7734FF" Association="Self.FK__Oferta_ha__ID_of__4B7734FF">
+      <End Role="Oferta_handlowa" EntitySet="Oferta_handlowa" />
+      <End Role="Oferta_handlowa_szczegol" EntitySet="Oferta_handlowa_szczegol" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Oferta_ha__ID_po__4D5F7D71" Association="Self.FK__Oferta_ha__ID_po__4D5F7D71">
+      <End Role="Podatek" EntitySet="Podatek" />
+      <End Role="Oferta_handlowa_szczegol" EntitySet="Oferta_handlowa_szczegol" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Oferta_ha__ID_pr__47A6A41B" Association="Self.FK__Oferta_ha__ID_pr__47A6A41B">
+      <End Role="Pracownik" EntitySet="Pracownik" />
+      <End Role="Oferta_handlowa" EntitySet="Oferta_handlowa" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Oferta_ha__ID_pr__4C6B5938" Association="Self.FK__Oferta_ha__ID_pr__4C6B5938">
+      <End Role="Produkt" EntitySet="Produkt" />
+      <End Role="Oferta_handlowa_szczegol" EntitySet="Oferta_handlowa_szczegol" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Oferta_ha__ID_st__489AC854" Association="Self.FK__Oferta_ha__ID_st__489AC854">
+      <End Role="Status_oferta" EntitySet="Status_oferta" />
+      <End Role="Oferta_handlowa" EntitySet="Oferta_handlowa" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Parametr___ID_je__3F466844" Association="Self.FK__Parametr___ID_je__3F466844">
+      <End Role="Jednostka" EntitySet="Jednostka" />
+      <End Role="Parametr_typ_magazynowania" EntitySet="Parametr_typ_magazynowania" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Parametr___ID_je__44FF419A" Association="Self.FK__Parametr___ID_je__44FF419A">
+      <End Role="Jednostka" EntitySet="Jednostka" />
+      <End Role="Parametr_poziom_magazynowanie" EntitySet="Parametr_poziom_magazynowanie" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Parametr___ID_po__2DE6D218" Association="Self.FK__Parametr___ID_po__2DE6D218">
+      <End Role="Pojazd_transport" EntitySet="Pojazd_transport" />
+      <End Role="Parametr_rodzaj_transport" EntitySet="Parametr_rodzaj_transport" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Parametr___ID_po__440B1D61" Association="Self.FK__Parametr___ID_po__440B1D61">
+      <End Role="Poziom_magazynowanie" EntitySet="Poziom_magazynowanie" />
+      <End Role="Parametr_poziom_magazynowanie" EntitySet="Parametr_poziom_magazynowanie" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Parametr___ID_ty__2EDAF651" Association="Self.FK__Parametr___ID_ty__2EDAF651">
+      <End Role="Typ_parametr_pojazd_transport" EntitySet="Typ_parametr_pojazd_transport" />
+      <End Role="Parametr_rodzaj_transport" EntitySet="Parametr_rodzaj_transport" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Parametr___ID_ty__3E52440B" Association="Self.FK__Parametr___ID_ty__3E52440B">
+      <End Role="Typ_magazynowania" EntitySet="Typ_magazynowania" />
+      <End Role="Parametr_typ_magazynowania" EntitySet="Parametr_typ_magazynowania" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Podkatego__ID_Ka__29572725" Association="Self.FK__Podkatego__ID_Ka__29572725">
+      <End Role="Kategoria" EntitySet="Kategoria" />
+      <End Role="Podkategoria" EntitySet="Podkategoria" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Pojazd_tr__ID_ro__2645B050" Association="Self.FK__Pojazd_tr__ID_ro__2645B050">
+      <End Role="Rodzaj_pojazd_transport" EntitySet="Rodzaj_pojazd_transport" />
+      <End Role="Pojazd_transport" EntitySet="Pojazd_transport" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Pojazd_tr__ID_st__2739D489" Association="Self.FK__Pojazd_tr__ID_st__2739D489">
+      <End Role="Stan_techniczny_pojazd_transport" EntitySet="Stan_techniczny_pojazd_transport" />
+      <End Role="Pojazd_transport" EntitySet="Pojazd_transport" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Pojazd_tr__ID_ty__25518C17" Association="Self.FK__Pojazd_tr__ID_ty__25518C17">
+      <End Role="Typ_pojazd_transport" EntitySet="Typ_pojazd_transport" />
+      <End Role="Pojazd_transport" EntitySet="Pojazd_transport" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Pojazd_tr__ID_ty__282DF8C2" Association="Self.FK__Pojazd_tr__ID_ty__282DF8C2">
+      <End Role="Typ_paliwa" EntitySet="Typ_paliwa" />
+      <End Role="Pojazd_transport" EntitySet="Pojazd_transport" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Posada_pr__ID_et__6A30C649" Association="Self.FK__Posada_pr__ID_et__6A30C649">
+      <End Role="Etat" EntitySet="Etat" />
+      <End Role="Posada_pracownika" EntitySet="Posada_pracownika" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Pracownik__ID_wy__571DF1D5" Association="Self.FK__Pracownik__ID_wy__571DF1D5">
+      <End Role="Wyksztalcenie" EntitySet="Wyksztalcenie" />
+      <End Role="Pracownik" EntitySet="Pracownik" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Produkt__ID_gwar__398D8EEE" Association="Self.FK__Produkt__ID_gwar__398D8EEE">
+      <End Role="Gwarancja" EntitySet="Gwarancja" />
+      <End Role="Produkt" EntitySet="Produkt" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Produkt__ID_prod__37A5467C" Association="Self.FK__Produkt__ID_prod__37A5467C">
+      <End Role="Producent" EntitySet="Producent" />
+      <End Role="Produkt" EntitySet="Produkt" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Produkt__ID_typ___38996AB5" Association="Self.FK__Produkt__ID_typ___38996AB5">
+      <End Role="Typ_produkt" EntitySet="Typ_produkt" />
+      <End Role="Produkt" EntitySet="Produkt" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Reklamacj__ID_pr__0C50D423" Association="Self.FK__Reklamacj__ID_pr__0C50D423">
+      <End Role="Pracownik" EntitySet="Pracownik" />
+      <End Role="Reklamacja_hurt" EntitySet="Reklamacja_hurt" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Reklamacj__ID_pr__14E61A24" Association="Self.FK__Reklamacj__ID_pr__14E61A24">
+      <End Role="Pracownik" EntitySet="Pracownik" />
+      <End Role="Reklamacja_detal" EntitySet="Reklamacja_detal" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Reklamacj__ID_sp__0D44F85C" Association="Self.FK__Reklamacj__ID_sp__0D44F85C">
+      <End Role="Sprzedaz_hurt" EntitySet="Sprzedaz_hurt" />
+      <End Role="Reklamacja_hurt" EntitySet="Reklamacja_hurt" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Reklamacj__ID_sp__15DA3E5D" Association="Self.FK__Reklamacj__ID_sp__15DA3E5D">
+      <End Role="Sprzedaz_detal" EntitySet="Sprzedaz_detal" />
+      <End Role="Reklamacja_detal" EntitySet="Reklamacja_detal" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Rozladune__ID_do__31B762FC" Association="Self.FK__Rozladune__ID_do__31B762FC">
+      <End Role="Dostawa" EntitySet="Dostawa" />
+      <End Role="Rozladunek" EntitySet="Rozladunek" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Rozladune__ID_po__32AB8735" Association="Self.FK__Rozladune__ID_po__32AB8735">
+      <End Role="Pojazd_transport" EntitySet="Pojazd_transport" />
+      <End Role="Rozladunek" EntitySet="Rozladunek" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Rozladune__ID_pr__339FAB6E" Association="Self.FK__Rozladune__ID_pr__339FAB6E">
+      <End Role="Pracownik" EntitySet="Pracownik" />
+      <End Role="Rozladunek" EntitySet="Rozladunek" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Slownik_a__ID_je__4CA06362" Association="Self.FK__Slownik_a__ID_je__4CA06362">
+      <End Role="Jednostka" EntitySet="Jednostka" />
+      <End Role="Slownik_atrybut" EntitySet="Slownik_atrybut" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sprzedaz___ID_fo__5D95E53A" Association="Self.FK__Sprzedaz___ID_fo__5D95E53A">
+      <End Role="Forma_platnosc" EntitySet="Forma_platnosc" />
+      <End Role="Sprzedaz_hurt" EntitySet="Sprzedaz_hurt" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sprzedaz___ID_fo__662B2B3B" Association="Self.FK__Sprzedaz___ID_fo__662B2B3B">
+      <End Role="Forma_platnosc" EntitySet="Forma_platnosc" />
+      <End Role="Sprzedaz_detal" EntitySet="Sprzedaz_detal" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sprzedaz___ID_fo__719CDDE7" Association="Self.FK__Sprzedaz___ID_fo__719CDDE7">
+      <End Role="Forma_platnosc" EntitySet="Forma_platnosc" />
+      <End Role="Sprzedaz_usluga_hurt" EntitySet="Sprzedaz_usluga_hurt" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sprzedaz___ID_fo__7A3223E8" Association="Self.FK__Sprzedaz___ID_fo__7A3223E8">
+      <End Role="Forma_platnosc" EntitySet="Forma_platnosc" />
+      <End Role="Sprzedaz_usluga_detal" EntitySet="Sprzedaz_usluga_detal" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sprzedaz___ID_je__634EBE90" Association="Self.FK__Sprzedaz___ID_je__634EBE90">
+      <End Role="Jednostka" EntitySet="Jednostka" />
+      <End Role="Sprzedaz_szczegol_hurt" EntitySet="Sprzedaz_szczegol_hurt" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sprzedaz___ID_je__6BE40491" Association="Self.FK__Sprzedaz___ID_je__6BE40491">
+      <End Role="Jednostka" EntitySet="Jednostka" />
+      <End Role="Sprzedaz_szczegol_detal" EntitySet="Sprzedaz_szczegol_detal" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sprzedaz___ID_po__6CD828CA" Association="Self.FK__Sprzedaz___ID_po__6CD828CA">
+      <End Role="Podatek" EntitySet="Podatek" />
+      <End Role="Sprzedaz_szczegol_detal" EntitySet="Sprzedaz_szczegol_detal" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sprzedaz___ID_pr__625A9A57" Association="Self.FK__Sprzedaz___ID_pr__625A9A57">
+      <End Role="Produkt" EntitySet="Produkt" />
+      <End Role="Sprzedaz_szczegol_hurt" EntitySet="Sprzedaz_szczegol_hurt" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sprzedaz___ID_pr__6AEFE058" Association="Self.FK__Sprzedaz___ID_pr__6AEFE058">
+      <End Role="Produkt" EntitySet="Produkt" />
+      <End Role="Sprzedaz_szczegol_detal" EntitySet="Sprzedaz_szczegol_detal" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sprzedaz___ID_pr__70A8B9AE" Association="Self.FK__Sprzedaz___ID_pr__70A8B9AE">
+      <End Role="Pracownik" EntitySet="Pracownik" />
+      <End Role="Sprzedaz_usluga_hurt" EntitySet="Sprzedaz_usluga_hurt" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sprzedaz___ID_pr__793DFFAF" Association="Self.FK__Sprzedaz___ID_pr__793DFFAF">
+      <End Role="Pracownik" EntitySet="Pracownik" />
+      <End Role="Sprzedaz_usluga_detal" EntitySet="Sprzedaz_usluga_detal" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sprzedaz___ID_sp__6166761E" Association="Self.FK__Sprzedaz___ID_sp__6166761E">
+      <End Role="Sprzedaz_hurt" EntitySet="Sprzedaz_hurt" />
+      <End Role="Sprzedaz_szczegol_hurt" EntitySet="Sprzedaz_szczegol_hurt" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sprzedaz___ID_sp__69FBBC1F" Association="Self.FK__Sprzedaz___ID_sp__69FBBC1F">
+      <End Role="Sprzedaz_detal" EntitySet="Sprzedaz_detal" />
+      <End Role="Sprzedaz_szczegol_detal" EntitySet="Sprzedaz_szczegol_detal" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sprzedaz___ID_sp__6FB49575" Association="Self.FK__Sprzedaz___ID_sp__6FB49575">
+      <End Role="Sprzedaz_hurt" EntitySet="Sprzedaz_hurt" />
+      <End Role="Sprzedaz_usluga_hurt" EntitySet="Sprzedaz_usluga_hurt" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sprzedaz___ID_sp__7849DB76" Association="Self.FK__Sprzedaz___ID_sp__7849DB76">
+      <End Role="Sprzedaz_detal" EntitySet="Sprzedaz_detal" />
+      <End Role="Sprzedaz_usluga_detal" EntitySet="Sprzedaz_usluga_detal" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sprzedaz___ID_Ty__5E8A0973" Association="Self.FK__Sprzedaz___ID_Ty__5E8A0973">
+      <End Role="Typ_odbioru" EntitySet="Typ_odbioru" />
+      <End Role="Sprzedaz_hurt" EntitySet="Sprzedaz_hurt" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sprzedaz___ID_Ty__671F4F74" Association="Self.FK__Sprzedaz___ID_Ty__671F4F74">
+      <End Role="Typ_odbioru" EntitySet="Typ_odbioru" />
+      <End Role="Sprzedaz_detal" EntitySet="Sprzedaz_detal" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sprzedaz___ID_za__5CA1C101" Association="Self.FK__Sprzedaz___ID_za__5CA1C101">
+      <End Role="Zamowienie" EntitySet="Zamowienie" />
+      <End Role="Sprzedaz_hurt" EntitySet="Sprzedaz_hurt" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Stan_real__ID_do__18EBB532" Association="Self.FK__Stan_real__ID_do__18EBB532">
+      <End Role="Dostawa" EntitySet="Dostawa" />
+      <End Role="Stan_realizacji_dostawa" EntitySet="Stan_realizacji_dostawa" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Stan_real__ID_pr__1AD3FDA4" Association="Self.FK__Stan_real__ID_pr__1AD3FDA4">
+      <End Role="Pracownik" EntitySet="Pracownik" />
+      <End Role="Stan_realizacji_dostawa" EntitySet="Stan_realizacji_dostawa" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Stan_real__ID_st__19DFD96B" Association="Self.FK__Stan_real__ID_st__19DFD96B">
+      <End Role="Status_dostawa" EntitySet="Status_dostawa" />
+      <End Role="Stan_realizacji_dostawa" EntitySet="Stan_realizacji_dostawa" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Stanowisk__ID_dz__6477ECF3" Association="Self.FK__Stanowisk__ID_dz__6477ECF3">
+      <End Role="Dzial_pracownik" EntitySet="Dzial_pracownik" />
+      <End Role="Stanowisko" EntitySet="Stanowisko" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Status_kl__ID_ra__3864608B" Association="Self.FK__Status_kl__ID_ra__3864608B">
+      <End Role="Rabat" EntitySet="Rabat" />
+      <End Role="Status_klient" EntitySet="Status_klient" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Szczegol___ID_pr__1209AD79" Association="Self.FK__Szczegol___ID_pr__1209AD79">
+      <End Role="Produkt" EntitySet="Produkt" />
+      <End Role="Szczegol_reklamacja_hurt" EntitySet="Szczegol_reklamacja_hurt" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Szczegol___ID_pr__1A9EF37A" Association="Self.FK__Szczegol___ID_pr__1A9EF37A">
+      <End Role="Produkt" EntitySet="Produkt" />
+      <End Role="Szczegol_reklamacja_detal" EntitySet="Szczegol_reklamacja_detal" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Szczegol___ID_re__10216507" Association="Self.FK__Szczegol___ID_re__10216507">
+      <End Role="Reklamacja_hurt" EntitySet="Reklamacja_hurt" />
+      <End Role="Szczegol_reklamacja_hurt" EntitySet="Szczegol_reklamacja_hurt" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Szczegol___ID_re__18B6AB08" Association="Self.FK__Szczegol___ID_re__18B6AB08">
+      <End Role="Reklamacja_detal" EntitySet="Reklamacja_detal" />
+      <End Role="Szczegol_reklamacja_detal" EntitySet="Szczegol_reklamacja_detal" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Szczegol___ID_sp__74794A92" Association="Self.FK__Szczegol___ID_sp__74794A92">
+      <End Role="Sprzedaz_usluga_hurt" EntitySet="Sprzedaz_usluga_hurt" />
+      <End Role="Szczegol_sprzedaz_usluga_hurt" EntitySet="Szczegol_sprzedaz_usluga_hurt" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Szczegol___ID_sp__7D0E9093" Association="Self.FK__Szczegol___ID_sp__7D0E9093">
+      <End Role="Sprzedaz_usluga_detal" EntitySet="Sprzedaz_usluga_detal" />
+      <End Role="Szczegol_sprzedaz_usluga_detal" EntitySet="Szczegol_sprzedaz_usluga_detal" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Szczegol___ID_ty__11158940" Association="Self.FK__Szczegol___ID_ty__11158940">
+      <End Role="Typ_reklamacja" EntitySet="Typ_reklamacja" />
+      <End Role="Szczegol_reklamacja_hurt" EntitySet="Szczegol_reklamacja_hurt" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Szczegol___ID_ty__19AACF41" Association="Self.FK__Szczegol___ID_ty__19AACF41">
+      <End Role="Typ_reklamacja" EntitySet="Typ_reklamacja" />
+      <End Role="Szczegol_reklamacja_detal" EntitySet="Szczegol_reklamacja_detal" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Szczegol___ID_us__756D6ECB" Association="Self.FK__Szczegol___ID_us__756D6ECB">
+      <End Role="Usluga" EntitySet="Usluga" />
+      <End Role="Szczegol_sprzedaz_usluga_hurt" EntitySet="Szczegol_sprzedaz_usluga_hurt" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Szczegol___ID_us__7E02B4CC" Association="Self.FK__Szczegol___ID_us__7E02B4CC">
+      <End Role="Usluga" EntitySet="Usluga" />
+      <End Role="Szczegol_sprzedaz_usluga_detal" EntitySet="Szczegol_sprzedaz_usluga_detal" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Szkolenie__ID_pr__0A9D95DB" Association="Self.FK__Szkolenie__ID_pr__0A9D95DB">
+      <End Role="Pracownik" EntitySet="Pracownik" />
+      <End Role="Szkolenie_pracownik" EntitySet="Szkolenie_pracownik" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Szkolenie__ID_ty__09A971A2" Association="Self.FK__Szkolenie__ID_ty__09A971A2">
+      <End Role="Typ_szkolenie" EntitySet="Typ_szkolenie" />
+      <End Role="Szkolenie_pracownik" EntitySet="Szkolenie_pracownik" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Typ_param__ID_je__2B0A656D" Association="Self.FK__Typ_param__ID_je__2B0A656D">
+      <End Role="Jednostka" EntitySet="Jednostka" />
+      <End Role="Typ_parametr_pojazd_transport" EntitySet="Typ_parametr_pojazd_transport" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Typ_produ__ID_po__2C3393D0" Association="Self.FK__Typ_produ__ID_po__2C3393D0">
+      <End Role="Podkategoria" EntitySet="Podkategoria" />
+      <End Role="Typ_produkt" EntitySet="Typ_produkt" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Umowa__ID_posada__797309D9" Association="Self.FK__Umowa__ID_posada__797309D9">
+      <End Role="Posada_pracownika" EntitySet="Posada_pracownika" />
+      <End Role="Umowa" EntitySet="Umowa" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Umowa__ID_pracow__787EE5A0" Association="Self.FK__Umowa__ID_pracow__787EE5A0">
+      <End Role="Pracownik" EntitySet="Pracownik" />
+      <End Role="Umowa" EntitySet="Umowa" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Umowa__ID_rodzaj__778AC167" Association="Self.FK__Umowa__ID_rodzaj__778AC167">
+      <End Role="Rodzaj_umowy" EntitySet="Rodzaj_umowy" />
+      <End Role="Umowa" EntitySet="Umowa" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Umowa__ID_wymiar__76969D2E" Association="Self.FK__Umowa__ID_wymiar__76969D2E">
+      <End Role="Wymiar_pracy" EntitySet="Wymiar_pracy" />
+      <End Role="Umowa" EntitySet="Umowa" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Umowa_spr__ID_of__503BEA1C" Association="Self.FK__Umowa_spr__ID_of__503BEA1C">
+      <End Role="Oferta_handlowa" EntitySet="Oferta_handlowa" />
+      <End Role="Umowa_sprzedaz_hurt" EntitySet="Umowa_sprzedaz_hurt" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Utylizacj__ID_pr__1F63A897" Association="Self.FK__Utylizacj__ID_pr__1F63A897">
+      <End Role="Produkt" EntitySet="Produkt" />
+      <End Role="Utylizacja" EntitySet="Utylizacja" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Utylizacj__ID_ty__2057CCD0" Association="Self.FK__Utylizacj__ID_ty__2057CCD0">
+      <End Role="Typ_utylizacja" EntitySet="Typ_utylizacja" />
+      <End Role="Utylizacja" EntitySet="Utylizacja" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Wyplata__ID_Prac__04E4BC85" Association="Self.FK__Wyplata__ID_Prac__04E4BC85">
+      <End Role="Pracownik" EntitySet="Pracownik" />
+      <End Role="Wyplata" EntitySet="Wyplata" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Wysylka_d__ID_po__0697FACD" Association="Self.FK__Wysylka_d__ID_po__0697FACD">
+      <End Role="Pojazd_transport" EntitySet="Pojazd_transport" />
+      <End Role="Wysylka_detal" EntitySet="Wysylka_detal" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Wysylka_d__ID_pr__078C1F06" Association="Self.FK__Wysylka_d__ID_pr__078C1F06">
+      <End Role="Pracownik" EntitySet="Pracownik" />
+      <End Role="Wysylka_detal" EntitySet="Wysylka_detal" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Wysylka_d__ID_sp__05A3D694" Association="Self.FK__Wysylka_d__ID_sp__05A3D694">
+      <End Role="Sprzedaz_usluga_detal" EntitySet="Sprzedaz_usluga_detal" />
+      <End Role="Wysylka_detal" EntitySet="Wysylka_detal" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Wysylka_h__ID_po__01D345B0" Association="Self.FK__Wysylka_h__ID_po__01D345B0">
+      <End Role="Pojazd_transport" EntitySet="Pojazd_transport" />
+      <End Role="Wysylka_hurt" EntitySet="Wysylka_hurt" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Wysylka_h__ID_pr__02C769E9" Association="Self.FK__Wysylka_h__ID_pr__02C769E9">
+      <End Role="Pracownik" EntitySet="Pracownik" />
+      <End Role="Wysylka_hurt" EntitySet="Wysylka_hurt" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Wysylka_h__ID_sp__00DF2177" Association="Self.FK__Wysylka_h__ID_sp__00DF2177">
+      <End Role="Sprzedaz_usluga_hurt" EntitySet="Sprzedaz_usluga_hurt" />
+      <End Role="Wysylka_hurt" EntitySet="Wysylka_hurt" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Zamowieni__ID_kl__540C7B00" Association="Self.FK__Zamowieni__ID_kl__540C7B00">
+      <End Role="Klient" EntitySet="Klient" />
+      <End Role="Zamowienie" EntitySet="Zamowienie" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Zamowieni__ID_pr__55009F39" Association="Self.FK__Zamowieni__ID_pr__55009F39">
+      <End Role="Pracownik" EntitySet="Pracownik" />
+      <End Role="Zamowienie" EntitySet="Zamowienie" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Zamowieni__ID_pr__59C55456" Association="Self.FK__Zamowieni__ID_pr__59C55456">
+      <End Role="Produkt" EntitySet="Produkt" />
+      <End Role="Zamowienie_szczegol" EntitySet="Zamowienie_szczegol" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Zamowieni__ID_st__55F4C372" Association="Self.FK__Zamowieni__ID_st__55F4C372">
+      <End Role="Stan_realizacji" EntitySet="Stan_realizacji" />
+      <End Role="Zamowienie" EntitySet="Zamowienie" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Zamowieni__ID_um__531856C7" Association="Self.FK__Zamowieni__ID_um__531856C7">
+      <End Role="Umowa_sprzedaz_hurt" EntitySet="Umowa_sprzedaz_hurt" />
+      <End Role="Zamowienie" EntitySet="Zamowienie" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Zamowieni__ID_za__58D1301D" Association="Self.FK__Zamowieni__ID_za__58D1301D">
+      <End Role="Zamowienie" EntitySet="Zamowienie" />
+      <End Role="Zamowienie_szczegol" EntitySet="Zamowienie_szczegol" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
